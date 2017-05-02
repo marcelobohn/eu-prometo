@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Managers</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Election</th>
+        <th>Local</th>
+        <th>Type manager</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>User</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @managers.each do |manager| %>
+        <tr>
+          <td><%= manager.name %></td>
+          <td><%= manager.election.year %></td>
+          <td>Local</td>
+          <td><%= manager.type_manager %></td>
+          <td><%= manager.start %></td>
+          <td><%= manager.end %></td>
+          <td><%= manager.user.email %></td>
+          <td>
+            <%= link_to '<i class="glyphicon glyphicon-pencil"></i> Show'.html_safe, manager, class: 'btn btn-info' %>
+            <%= link_to '<i class="glyphicon glyphicon-pencil"></i> Edit'.html_safe, edit_manager_path(manager), class: 'btn btn-primary' %>
+            <%= link_to '<i class="glyphicon glyphicon-remove"></i> Destroy'.html_safe, manager, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to '<i class="glyphicon glyphicon-file"></i> New Manager'.html_safe, new_manager_path, class: 'btn btn-primary' %>

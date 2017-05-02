@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502181159) do
+ActiveRecord::Schema.define(version: 20170502193528) do
 
   create_table "elections", force: :cascade do |t|
     t.integer "year"
@@ -18,6 +18,22 @@ ActiveRecord::Schema.define(version: 20170502181159) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.string "name"
+    t.integer "election_id"
+    t.integer "contry_id"
+    t.integer "state_id"
+    t.integer "city_id"
+    t.integer "type_manager"
+    t.date "start"
+    t.date "end"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["election_id"], name: "index_managers_on_election_id"
+    t.index ["user_id"], name: "index_managers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

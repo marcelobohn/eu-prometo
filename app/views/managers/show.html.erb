@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @manager.name %>
+</p>
+
+<p>
+  <strong>Election:</strong>
+  <%= @manager.election.year %>
+</p>
+
+<p>
+  <strong>Contry:</strong>
+  <%= @manager.contry_id %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @manager.state_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @manager.city_id %>
+</p>
+
+<p>
+  <strong>Type manager:</strong>
+  <%= @manager.type_manager %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @manager.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @manager.end %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @manager.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_manager_path(@manager), class: 'btn btn-primary' %> |
+<%= link_to 'Back', managers_path, class: 'btn btn-primary' %>

@@ -1,0 +1,62 @@
+<%= form_with(model: manager, local: true) do |form| %>
+  <% if manager.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(manager.errors.count, "error") %> prohibited this manager from being saved:</h2>
+
+      <ul>
+      <% manager.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :user_id %>
+    <%= manager.user.email %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :election_id %>
+    <%= form.select :election_id, Election.all.collect { |e| [ e.year, e.id ] }, id: :manager_election_id, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :manager_name, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :contry_id %>
+    <%= form.number_field :contry_id, id: :manager_contry_id, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :state_id %>
+    <%= form.number_field :state_id, id: :manager_state_id, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :city_id %>
+    <%= form.number_field :city_id, id: :manager_city_id, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :type_manager %>
+    <%= form.number_field :type_manager, id: :manager_type_manager, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :start %>
+    <%= form.date_select :start, id: :manager_start, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :end %>
+    <%= form.date_select :end, id: :manager_end, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

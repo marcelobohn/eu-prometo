@@ -13,7 +13,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class=<%= current_page?(elections_path) ? 'active' : '' %>><a href="/elections">Elections</a></li>
-        <li><a href="/managers">Managers</a></li>
+        <li class=<%= current_page?(managers_path) ? 'active' : '' %>><a href="/managers">Managers</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class=<%= current_page?(about_path) ? 'active' : '' %>><a href="/about">About</a></li>
