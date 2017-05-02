@@ -56,3 +56,6 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'sprockets', github: 'rails/sprockets', branch: 'master'
 gem 'babel-transpiler'
+
+gem 'devise', github: 'plataformatec/devise'
+gem 'erubis'
