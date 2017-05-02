@@ -2,30 +2,32 @@
 
 <h1>Elections</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Year</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @elections.each do |election| %>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= election.year %></td>
-        <td><%= election.type %></td>
-        <td><%= election.description %></td>
-        <td><%= link_to 'Show', election %></td>
-        <td><%= link_to 'Edit', edit_election_path(election) %></td>
-        <td><%= link_to 'Destroy', election, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Year</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @elections.each do |election| %>
+        <tr>
+          <td><%= election.year %></td>
+          <td><%= election.type %></td>
+          <td><%= election.description %></td>
+          <td style='width: 100px'><%= link_to 'Show', election, class: 'btn btn-info' %></td>
+          <td style='width: 100px'><%= link_to '<i class="glyphicon glyphicon-pencil"></i> Edit'.html_safe, edit_election_path(election), class: 'btn btn-primary' %></td>
+          <td style='width: 100px'><%= link_to '<i class="glyphicon glyphicon-remove"></i> Destroy'.html_safe, election, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
-<%= link_to 'New Election', new_election_path %>
+<%= link_to '<i class="glyphicon glyphicon-file"></i> New Election'.html_safe, new_election_path, class: 'btn btn-primary' %>
