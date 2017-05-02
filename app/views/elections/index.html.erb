@@ -17,7 +17,7 @@
       <% @elections.each do |election| %>
         <tr>
           <td><%= election.year %></td>
-          <td><%= election.type %></td>
+          <td><%= election.type_election %></td>
           <td><%= election.description %></td>
           <td style='width: 100px'><%= link_to 'Show', election, class: 'btn btn-info' %></td>
           <td style='width: 100px'><%= link_to '<i class="glyphicon glyphicon-pencil"></i> Edit'.html_safe, edit_election_path(election), class: 'btn btn-primary' %></td>
