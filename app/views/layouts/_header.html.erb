@@ -17,7 +17,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class=<%= current_page?(about_path) ? 'active' : '' %>><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class=<%= current_page?(contact_path) ? 'active' : '' %>><a href="/contact">Contact</a></li>
         <li><a href="/login">Login</a></li>
       </ul>
     </div><!--/.nav-collapse -->
