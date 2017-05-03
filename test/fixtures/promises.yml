@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manager: one
+  description: MyText
+  date_finish: 2017-05-03
+  description_finish: MyText
+  user_create_id: 1
+  user_finish: 1
+
+two:
+  manager: two
+  description: MyText
+  date_finish: 2017-05-03
+  description_finish: MyText
+  user_create_id: 1
+  user_finish: 1

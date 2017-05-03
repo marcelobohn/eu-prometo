@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Promises</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Manager</th>
+      <th>Description</th>
+      <th>Date finish</th>
+      <th>Description finish</th>
+      <th>User create</th>
+      <th>User finish</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @promises.each do |promise| %>
+      <tr>
+        <td><%= promise.manager %></td>
+        <td><%= promise.description %></td>
+        <td><%= promise.date_finish %></td>
+        <td><%= promise.description_finish %></td>
+        <td><%= promise.user_create_id %></td>
+        <td><%= promise.user_finish %></td>
+        <td><%= link_to 'Show', promise %></td>
+        <td><%= link_to 'Edit', edit_promise_path(promise) %></td>
+        <td><%= link_to 'Destroy', promise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Promise', new_promise_path %>
