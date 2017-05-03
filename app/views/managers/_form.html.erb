@@ -13,7 +13,7 @@
 
   <div class="field form-group">
     <%= form.label :user_id %>
-    <%= manager.user.email %>
+    <%= manager.user && manager.user.email %>
   </div>
 
   <div class="field form-group">
@@ -27,8 +27,8 @@
   </div>
 
   <div class="field form-group">
-    <%= form.label :contry_id %>
-    <%= form.number_field :contry_id, id: :manager_contry_id, class: 'form-control' %>
+    <%= form.label :country_id %>
+    <%= form.number_field :country_id, id: :manager_country_id, class: 'form-control' %>
   </div>
 
   <div class="field form-group">
@@ -48,12 +48,12 @@
 
   <div class="field form-group">
     <%= form.label :start %>
-    <%= form.date_select :start, id: :manager_start, class: 'form-control' %>
+    <%= form.date_select :start, id: :manager_start, order: [:day, :month, :year], class: 'form-control' %>
   </div>
 
   <div class="field form-group">
     <%= form.label :end %>
-    <%= form.date_select :end, id: :manager_end, class: 'form-control' %>
+    <%= form.date_select :end, id: :manager_end, order: [:day, :month, :year], class: 'form-control' %>
   </div>
 
   <div class="actions">

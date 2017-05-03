@@ -17,7 +17,7 @@ class ManagersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create manager" do
     assert_difference('Manager.count') do
-      post managers_url, params: { manager: { city_id: @manager.city_id, contry_id: @manager.contry_id, election_id: @manager.election_id, end: @manager.end, name: @manager.name, start: @manager.start, state_id: @manager.state_id, type_manager: @manager.type_manager, user_id: @manager.user_id } }
+      post managers_url, params: { manager: { city_id: @manager.city_id, country_id: @manager.country_id, election_id: @manager.election_id, end: @manager.end, name: @manager.name, start: @manager.start, state_id: @manager.state_id, type_manager: @manager.type_manager, user_id: @manager.user_id } }
     end
 
     assert_redirected_to manager_url(Manager.last)
@@ -34,7 +34,7 @@ class ManagersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update manager" do
-    patch manager_url(@manager), params: { manager: { city_id: @manager.city_id, contry_id: @manager.contry_id, election_id: @manager.election_id, end: @manager.end, name: @manager.name, start: @manager.start, state_id: @manager.state_id, type_manager: @manager.type_manager, user_id: @manager.user_id } }
+    patch manager_url(@manager), params: { manager: { city_id: @manager.city_id, country_id: @manager.country_id, election_id: @manager.election_id, end: @manager.end, name: @manager.name, start: @manager.start, state_id: @manager.state_id, type_manager: @manager.type_manager, user_id: @manager.user_id } }
     assert_redirected_to manager_url(@manager)
   end
 

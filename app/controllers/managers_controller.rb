@@ -16,6 +16,7 @@ class ManagersController < ApplicationController
   # GET /managers/new
   def new
     @manager = Manager.new
+    @manager.user = current_user
   end
 
   # GET /managers/1/edit
@@ -26,6 +27,7 @@ class ManagersController < ApplicationController
   # POST /managers.json
   def create
     @manager = Manager.new(manager_params)
+    @manager.user = current_user
 
     respond_to do |format|
       if @manager.save
@@ -70,6 +72,6 @@ class ManagersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manager_params
-      params.require(:manager).permit(:name, :election_id, :contry_id, :state_id, :city_id, :type_manager, :start, :end, :user_id)
+      params.require(:manager).permit(:name, :election_id, :country_id, :state_id, :city_id, :type_manager, :start, :end, :user_id)
     end
 end

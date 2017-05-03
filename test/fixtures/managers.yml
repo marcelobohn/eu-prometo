@@ -3,7 +3,7 @@
 one:
   name: MyString
   election: one
-  contry_id: 1
+  country_id: 1
   state_id: 1
   city_id: 1
   type_manager: 1
@@ -14,7 +14,7 @@ one:
 two:
   name: MyString
   election: two
-  contry_id: 1
+  country_id: 1
   state_id: 1
   city_id: 1
   type_manager: 1
