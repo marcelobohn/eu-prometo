@@ -21,6 +21,8 @@ class ManagersController < ApplicationController
 
   # GET /managers/1/edit
   def edit
+    puts '########'
+    puts config
   end
 
   # POST /managers
