@@ -1,5 +1,6 @@
 class ElectionsController < ApplicationController
   before_action :set_election, only: [:show, :edit, :update, :destroy]
+  before_action :set_types, only: [:show, :new, :edit]
   before_action :authenticate_user!
 
   # GET /elections
@@ -66,6 +67,10 @@ class ElectionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_election
       @election = Election.find(params[:id])
+    end
+
+    def set_types
+      @type_election = [['Nacional/Estadual', 1], ['Municipal', 2]];
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

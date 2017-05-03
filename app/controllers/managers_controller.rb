@@ -1,5 +1,6 @@
 class ManagersController < ApplicationController
   before_action :set_manager, only: [:show, :edit, :update, :destroy]
+  before_action :set_types, only: [:show, :new, :create, :edit]
   before_action :authenticate_user!
 
   # GET /managers
@@ -16,13 +17,10 @@ class ManagersController < ApplicationController
   # GET /managers/new
   def new
     @manager = Manager.new
-    @manager.user = current_user
   end
 
   # GET /managers/1/edit
   def edit
-    puts '########'
-    puts config
   end
 
   # POST /managers
@@ -30,6 +28,8 @@ class ManagersController < ApplicationController
   def create
     @manager = Manager.new(manager_params)
     @manager.user = current_user
+    @manager.country_id = 1
+    @manager.state = @manager.city.state
 
     respond_to do |format|
       if @manager.save
@@ -70,6 +70,11 @@ class ManagersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_manager
       @manager = Manager.find(params[:id])
+    end
+
+    def set_types
+      @type_manager = [['Presidente(a)', 1], ['Governador(a)', 2], ['Prefeito(a)', 3]]
+      @cities = City.all.collect { |c| [ c.name + ' / ' + c.state.abbrev, c.id ] }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

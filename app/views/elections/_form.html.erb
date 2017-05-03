@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :year %>
-    <%= form.number_field :year, id: :election_year, class: 'form-control' %>
-  </div>
+  <div class="row">
+    <div class="form-group col-md-2">
+      <%= form.label :year %>
+      <%= form.number_field :year, id: :election_year, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :type_election %>
-    <%= form.number_field :type_election, id: :election_type_election, class: 'form-control' %>
-  </div>
+    <div class="form-group col-md-3">
+      <%= form.label :type_election %>
+      <%= form.select :type_election, @type_election, {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :election_description, class: 'form-control' %>
+    <div class="form-group col-md-7">
+      <%= form.label :description %>
+      <%= form.text_field :description, id: :election_description, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">

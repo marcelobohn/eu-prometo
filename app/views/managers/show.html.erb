@@ -12,17 +12,17 @@
 
 <p>
   <strong>Country:</strong>
-  <%= @manager.country_id %>
+  <%= @manager.country && @manager.country.name %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @manager.state_id %>
+  <%= @manager.state && @manager.state.name %>
 </p>
 
 <p>
   <strong>City:</strong>
-  <%= @manager.city_id %>
+  <%= @manager.city && @manager.city.name %>
 </p>
 
 <p>

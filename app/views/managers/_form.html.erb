@@ -12,14 +12,19 @@
   <% end %>
 
   <div class="row">
-    <div class="field form-group col-md-4">
+    <div class="field form-group col-md-3">
       <%= form.label :election_id %>
       <%= form.select :election_id, Election.all.collect { |e| [ e.year, e.id ] }, {}, {required: 'true', autofocus: 'true', class: 'form-control'}  %>
     </div>
 
-    <div class="field form-group col-md-4">
+    <div class="field form-group col-md-3">
       <%= form.label :type_manager %>
-      <%= form.select :type_manager, [['Presidente', 1], ['Governador', 2]], {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+      <%= form.select :type_manager, @type_manager, {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+    </div>
+
+    <div class="field form-group col-md-6">
+      <%= form.label :city_id %>
+      <%= form.select :city_id, @cities, {}, {required: 'true', autofocus: 'true', class: 'form-control'}  %>
     </div>
   </div>
 
@@ -29,21 +34,6 @@
       <%= form.text_field :name, id: :manager_name, class: 'form-control' %>
     </div>
 
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :country_id %>
-    <%= form.number_field :country_id, id: :manager_country_id, class: 'form-control' %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :state_id %>
-    <%= form.number_field :state_id, id: :manager_state_id, class: 'form-control' %>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :city_id %>
-    <%= form.number_field :city_id, id: :manager_city_id, class: 'form-control' %>
   </div>
 
   <div class="row">
