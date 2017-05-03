@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+br = Country.create! name: 'Brasil'
+rs = State.create! name: 'Rio Grande do Sul', abbrev: 'RS', country: br
+ivoti = City.create! name: 'Ivoti', state: rs
+
+marcelo = User.create! email: 'marcelo.bohn@gmail.com', password: '123123', password_confirmation: '123123'
+
+election = Election.create! year: 2016, type_election: 2, description: 'Normal'
+
+Manager.create! name: 'Maria', election: election, country: br, state: rs, city: ivoti, type_manager: 3, user: marcelo
