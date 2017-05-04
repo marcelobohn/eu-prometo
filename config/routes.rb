@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'contact#index'
 
   resources :elections
-  resources :managers
-  resources :promises
+  resources :managers do
+    resources :promises
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

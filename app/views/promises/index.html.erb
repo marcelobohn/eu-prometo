@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
+<h3>Manager</h3>
+<p><%= @manager.name %></p>
 
 <h1>Promises</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Manager</th>
       <th>Description</th>
       <th>Date finish</th>
       <th>Description finish</th>
@@ -18,15 +19,14 @@
   <tbody>
     <% @promises.each do |promise| %>
       <tr>
-        <td><%= promise.manager %></td>
         <td><%= promise.description %></td>
         <td><%= promise.date_finish %></td>
         <td><%= promise.description_finish %></td>
         <td><%= promise.user_create_id %></td>
         <td><%= promise.user_finish %></td>
-        <td><%= link_to 'Show', promise %></td>
-        <td><%= link_to 'Edit', edit_promise_path(promise) %></td>
-        <td><%= link_to 'Destroy', promise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', manager_promise_path(@manager, promise) %></td>
+        <td><%= link_to 'Edit', edit_manager_promise_path(@manager, promise) %></td>
+        <td><%= link_to 'Destroy', manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Promise', new_promise_path %>
+<%= link_to 'New Promise', new_manager_promise_path %>

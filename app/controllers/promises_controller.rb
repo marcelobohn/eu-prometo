@@ -4,7 +4,9 @@ class PromisesController < ApplicationController
   # GET /promises
   # GET /promises.json
   def index
-    @promises = Promise.all
+    # @promises = Promise.all
+    @manager = Manager.find(params[:manager_id])
+    @promises = @manager.promise.all
   end
 
   # GET /promises/1
@@ -14,6 +16,7 @@ class PromisesController < ApplicationController
 
   # GET /promises/new
   def new
+    @manager = Manager.find(params[:manager_id])
     @promise = Promise.new
   end
 
@@ -28,7 +31,7 @@ class PromisesController < ApplicationController
 
     respond_to do |format|
       if @promise.save
-        format.html { redirect_to @promise, notice: 'Promise was successfully created.' }
+        format.html { redirect_to manager_promises_path(@promise.manager), notice: 'Promise was successfully created.' }
         format.json { render :show, status: :created, location: @promise }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class PromisesController < ApplicationController
   def update
     respond_to do |format|
       if @promise.update(promise_params)
-        format.html { redirect_to @promise, notice: 'Promise was successfully updated.' }
+        format.html { redirect_to manager_promises_path(@manager), notice: 'Promise was successfully updated.' }
         format.json { render :show, status: :ok, location: @promise }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class PromisesController < ApplicationController
   def destroy
     @promise.destroy
     respond_to do |format|
-      format.html { redirect_to promises_url, notice: 'Promise was successfully destroyed.' }
+      format.html { redirect_to manager_promises_path(@promise.manager), notice: 'Promise was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,6 +67,7 @@ class PromisesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_promise
+      @manager = Manager.find(params[:manager_id])
       @promise = Promise.find(params[:id])
     end
 
