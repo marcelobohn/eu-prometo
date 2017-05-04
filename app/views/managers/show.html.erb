@@ -45,5 +45,6 @@
   <%= @manager.user.email %>
 </p>
 
+<%= link_to 'Promises', manager_promises_path(@manager), class: 'btn btn-primary' %> |
 <%= link_to 'Edit', edit_manager_path(@manager), class: 'btn btn-primary' %> |
 <%= link_to 'Back', managers_path, class: 'btn btn-primary' %>

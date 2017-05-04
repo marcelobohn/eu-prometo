@@ -14,4 +14,6 @@ marcelo = User.create! email: 'marcelo.bohn@gmail.com', password: '123123', pass
 
 election = Election.create! year: 2016, type_election: 2, description: 'Normal'
 
-Manager.create! name: 'Maria', election: election, country: br, state: rs, city: ivoti, type_manager: 3, user: marcelo
+maria = Manager.create! name: 'Maria', election: election, country: br, state: rs, city: ivoti, type_manager: 3, user: marcelo
+
+Promise.create! manager:maria, description: 'prometo que ...'
