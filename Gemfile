@@ -59,3 +59,5 @@ gem 'babel-transpiler'
 
 gem 'devise', github: 'plataformatec/devise'
 gem 'erubis'
+
+gem 'omniauth-facebook'
