@@ -18,6 +18,7 @@ class PromisesController < ApplicationController
   def new
     @manager = Manager.find(params[:manager_id])
     @promise = Promise.new
+    @promise.manager = @manager
   end
 
   # GET /promises/1/edit
@@ -28,6 +29,7 @@ class PromisesController < ApplicationController
   # POST /promises.json
   def create
     @promise = Promise.new(promise_params)
+    @promise.user_create_id = current_user.id
 
     respond_to do |format|
       if @promise.save
