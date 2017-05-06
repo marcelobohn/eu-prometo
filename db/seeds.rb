@@ -15,6 +15,6 @@ admin = User.create! email: 'admin@euprometoavoce.com.br', password: '123123', p
 
 election = Election.create! year: 2016, type_election: :municipal, description: 'Normal'
 
-maria = Manager.create! name: 'Maria', election: election, country: br, state: rs, city: ivoti, type_manager: 3, user: marcelo
+maria = Manager.create! name: 'Maria', election: election, country: br, state: rs, city: ivoti, type_manager: :mayor, user: marcelo
 
 Promise.create! manager:maria, description: 'prometo que ...', user_create_id: marcelo.id

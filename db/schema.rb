@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170504230512) do
     t.integer "country_id"
     t.integer "state_id"
     t.integer "city_id"
-    t.integer "type_manager"
+    t.string "type_manager"
     t.date "start"
     t.date "end"
     t.integer "user_id"

@@ -73,7 +73,7 @@ class ManagersController < ApplicationController
     end
 
     def set_types
-      @type_manager = [['Presidente(a)', 1], ['Governador(a)', 2], ['Prefeito(a)', 3]]
+      @type_manager = [['Presidente(a)', :president], ['Governador(a)', :governor], ['Prefeito(a)', :mayor]]
       @cities = City.all.collect { |c| [ c.name + ' / ' + c.state.abbrev, c.id ] }
     end
 
