@@ -10,15 +10,11 @@
       </ul>
     </div>
   <% end %>
+  <%= form.text_field :manager_id, id: :promise_manager_id, class: 'form-control', type: 'hidden' %>
 
-  <p>Manager: <%= promise.manager.name %></p>
+
   <div class="row">
-    <div class="field form-group col-md-3">
-      <%= form.label :manager_id %>
-      <%= form.text_field :manager_id, id: :promise_manager_id, class: 'form-control' %>
-    </div>
-
-    <div class="field form-group col-md-3">
+    <div class="field form-group col-md-12">
       <%= form.label :description %>
       <%= form.text_area :description, id: :promise_description, class: 'form-control' %>
     </div>

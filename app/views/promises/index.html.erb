@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-<h3>Manager</h3>
-<p><%= link_to @manager.name, manager_path(@manager) %></p>
+
+<%= render 'manager', manager: @manager %>
 
 <h1>Promises</h1>
 
@@ -8,11 +8,8 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Description</th>
-        <th>Date finish</th>
-        <th>Description finish</th>
-        <th>User create</th>
-        <th>User finish</th>
+        <th style="width: 700px">Description</th>
+        <th style="width: 200px">User create</th>
         <th></th>
       </tr>
     </thead>
@@ -20,14 +17,13 @@
     <tbody>
       <% @promises.each do |promise| %>
         <tr>
-          <td><%= promise.description %></td>
-          <td><%= promise.date_finish %></td>
-          <td><%= promise.description_finish %></td>
-          <td><%= promise.user_create_id %></td>
-          <td><%= promise.user_finish %></td>
           <td>
-            <%= link_to '<i class="glyphicon glyphicon-file"></i>'.html_safe, manager_promise_path(@manager, promise), class: 'btn btn-info', :title => "Show" %>
+              <%= link_to promise.description, manager_promise_path(@manager, promise), :title => "Show" %>
+          </td>
+          <td><%= promise.user_create_id ? User.find(promise.user_create_id).email : '' %></td>
+          <td>
             <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_manager_promise_path(@manager, promise), class: 'btn btn-primary', :title => "Edit" %>
+            <%#= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', :title => "Delete" %>
           </td>
         </tr>
       <% end %>

@@ -1,12 +1,12 @@
 <div class="row">
   <% @managers.each do |manager| %>
     <div class="field form-group col-md-4">
-      <div class="panel panel-info">
+      <div class="panel panel-default">
         <div class="panel-heading"><%= link_to manager.name, manager %> - Election <%= manager.election.year %></div>
         <div class="panel-body">
-          Promises: 0
-          Finished: 0
-          Pending: 0
+          Promises: <%= manager.promise.count %><br />
+          Finished: <%= manager.promise.where.not(date_finish: nil).count %><br />
+          Pending: <%= manager.promise.where(date_finish: nil).count %><br />
         </div>
         <div class="panel-footer"><%= link_to 'Show promises', manager_promises_path(manager), class: 'btn btn-info', :title => "Show Promises" %></div>
       </div>
