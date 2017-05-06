@@ -3,11 +3,6 @@
 <%= render 'manager', manager: @manager %>
 
 <p>
-  <strong>Manager:</strong>
-  <%= @promise.manager %>
-</p>
-
-<p>
   <strong>Description:</strong>
   <%= @promise.description %>
 </p>
@@ -24,7 +19,7 @@
 
 <p>
   <strong>User create:</strong>
-  <%= @promise.user_create_id %>
+  <%= @promise.user_create_id ? User.find(@promise.user_create_id).email : '' %>
 </p>
 
 <p>

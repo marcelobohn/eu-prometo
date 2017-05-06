@@ -6,9 +6,8 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Year</th>
-        <th>Type</th>
         <th>Description</th>
+        <th>Type</th>
         <th style="width: 300px"></th>
       </tr>
     </thead>
@@ -16,13 +15,11 @@
     <tbody>
       <% @elections.each do |election| %>
         <tr>
-          <td><%= election.year %></td>
+          <td><%= link_to election.year.to_s+' - '+election.description, election %></td>
           <td><%= election.type_election %></td>
-          <td><%= election.description %></td>
           <td>
-            <%= link_to '<i class="glyphicon glyphicon-pencil"></i> Show'.html_safe, election, class: 'btn btn-info' %>
-            <%= link_to '<i class="glyphicon glyphicon-pencil"></i> Edit'.html_safe, edit_election_path(election), class: 'btn btn-primary' %>
-            <%= link_to '<i class="glyphicon glyphicon-remove"></i> Destroy'.html_safe, election, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_election_path(election), class: 'btn btn-primary' %>
+            <%#= link_to '<i class="glyphicon glyphicon-remove"></i> Destroy'.html_safe, election, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           </td>
         </tr>
       <% end %>
