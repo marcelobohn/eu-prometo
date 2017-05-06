@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170504230512) do
 
   create_table "elections", force: :cascade do |t|
     t.integer "year"
-    t.integer "type_election"
+    t.string "type_election"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

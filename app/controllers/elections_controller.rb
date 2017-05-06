@@ -70,7 +70,7 @@ class ElectionsController < ApplicationController
     end
 
     def set_types
-      @type_election = [['Nacional/Estadual', 1], ['Municipal', 2]];
+      @type_election = [['Nacional/Estadual', :national], ['Municipal', :municipal]];
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
