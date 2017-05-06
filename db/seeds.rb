@@ -10,8 +10,8 @@ br = Country.create! name: 'Brasil'
 rs = State.create! name: 'Rio Grande do Sul', abbrev: 'RS', country: br
 ivoti = City.create! name: 'Ivoti', state: rs
 
-marcelo = User.create! email: 'marcelo@bohn.com.br', password: '123123', password_confirmation: '123123'
-admin = User.create! email: 'admin@euprometoavoce.com.br', password: '123123', password_confirmation: '123123'
+marcelo = User.create! email: 'marcelo@bohn.com.br', password: '123123', password_confirmation: '123123', admin: true
+admin = User.create! email: 'admin@euprometoavoce.com.br', password: '123123', password_confirmation: '123123', admin: true
 
 election = Election.create! year: 2016, type_election: :municipal, description: 'Normal'
 
