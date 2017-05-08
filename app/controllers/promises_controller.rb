@@ -1,5 +1,5 @@
 class PromisesController < ApplicationController
-  before_action :set_promise, only: [:show, :edit, :update, :destroy]
+  before_action :set_promise, only: [:show, :edit, :update, :destroy, :finish]
   before_action :authenticate_user!
 
   # GET /promises
@@ -24,6 +24,11 @@ class PromisesController < ApplicationController
 
   # GET /promises/1/edit
   def edit
+  end
+
+  def finish
+    @finishing = true
+    @promise.date_finish = Time.now.strftime("%Y-%m-%d")
   end
 
   # POST /promises
@@ -71,7 +76,7 @@ class PromisesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_promise
       @manager = Manager.find(params[:manager_id])
-      @promise = Promise.find(params[:id])
+      @promise = Promise.find(params[:id] || params[:promise_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

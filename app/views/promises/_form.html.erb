@@ -16,9 +16,28 @@
   <div class="row">
     <div class="field form-group col-md-12">
       <%= form.label :description %>
-      <%= form.text_area :description, id: :promise_description, class: 'form-control' %>
+      <% if @finishing %>
+        <%= promise.description %>
+      <% else %>
+        <%= form.text_area :description, id: :promise_description, class: 'form-control' %>
+      <% end %>
     </div>
   </div>
+  <% if @finishing %>
+    <div class="row">
+      <div class="field form-group col-md-3">
+        <%= form.label :date_finish %>
+        <%= form.text_field :date_finish, id: :promise_date_finish, type: 'date', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field form-group col-md-12">
+        <%= form.label :description_finish %>
+        <%= form.text_area :description_finish, id: :promise_description_finish, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>

@@ -16,3 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+function click() {
+  console.log('click')
+}
