@@ -1,0 +1,6 @@
+pt:
+  codes:
+    election:
+      type:
+        '0': 'Nacional'
+        '1': 'Municipal'

@@ -1,11 +1,11 @@
-<h1>Elections</h1>
+<h1><%= I18n.t('views.election.index.title') %></h1>
 
 <div class="table-responsive">
   <table class="table">
     <thead>
       <tr>
-        <th>Description</th>
-        <th>Type</th>
+        <th><%= I18n.t('views.election.columns.description') %></th>
+        <th><%= I18n.t('views.election.columns.type') %></th>
         <th style="width: 300px"></th>
       </tr>
     </thead>
@@ -14,7 +14,7 @@
       <% @elections.each do |election| %>
         <tr>
           <td><%= link_to election.year.to_s+' - '+election.description, election %></td>
-          <td><%= election.type_election %></td>
+          <td><%= election.type_election_text %></td>
           <td>
             <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_election_path(election), class: 'btn btn-primary' %>
             <%#= link_to '<i class="glyphicon glyphicon-remove"></i> Destroy'.html_safe, election, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
@@ -25,6 +25,4 @@
   </table>
 </div>
 
-<br>
-
-<%= link_to '<i class="glyphicon glyphicon-file"></i> New Election'.html_safe, new_election_path, class: 'btn btn-primary' %>
+<%= link_to "<i class=\"glyphicon glyphicon-file\"></i> ".html_safe+I18n.t('views.election.index.new_election'), new_election_path, class: 'btn btn-primary' %>

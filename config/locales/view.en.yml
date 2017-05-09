@@ -1,0 +1,20 @@
+pt:
+  views:
+    show: Show
+    edit: Edit
+    destroy: Delete
+    are_you_sure: Are you sure?
+    back: Back
+    edit: Edit
+    election:
+      index:
+        title: List of all elections
+        new_election: New election
+      edit:
+        title: Edit Election
+      new:
+        title: New election
+      flash_messages:
+        election_was_successfully_created: 'Election was successfully created.'
+        election_was_successfully_updated: 'Election was successfully updated.'
+        election_was_successfully_destroyed: 'Election was successfully destroyed.'

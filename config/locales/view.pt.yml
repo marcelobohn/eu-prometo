@@ -1,0 +1,31 @@
+pt:
+  views:
+    show: Exibir
+    edit: Edit
+    destroy: Delete
+    are_you_sure: Are you sure?
+    back: Voltar
+    edit: Editar
+    election:
+      index:
+        title: Eleições
+        new_election: Nova eleição
+        edit_election: Editando eleição
+        show_election: Exibindo eleição
+      columns:
+        description: Descrição
+        type: Tipo
+        year: Ano
+      flash_messages:
+        election_was_successfully_created: 'Eleição foi criada com sucesso.'
+        election_was_successfully_updated: 'Eleição foi atualizada com sucesso.'
+        election_was_successfully_destroyed: 'Eleição foi excluída com sucesso.'
+
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Atualizar %{model}"
+
+      # election:
+      #   create: "Criar eleição"
+      #   update: "Atualizar eleição"

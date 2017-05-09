@@ -1,6 +1,6 @@
-<h1>Editing Election</h1>
+<h1><%= I18n.t('views.election.index.edit_election') %></h1>
 
 <%= render 'form', election: @election %>
 
-<%= link_to 'Show', @election, class: 'btn btn-primary' %> |
-<%= link_to 'Back', elections_path, class: 'btn btn-primary' %>
+<%= link_to '<i class="glyphicon glyphicon-file"></i> '.html_safe+I18n.t('views.show'), @election, class: 'btn btn-primary' %> |
+<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i>'.html_safe+I18n.t('views.back'), elections_path, class: 'btn btn-primary' %>

@@ -19,6 +19,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class=<%= current_page?(about_path) ? 'active' : '' %>><a href="/about">About</a></li>
+        <li><a href="/support">Support</a></li>
         <li class=<%= current_page?(contact_path) ? 'active' : '' %>><a href="/contact">Contact</a></li>
         <% if user_signed_in? %>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>

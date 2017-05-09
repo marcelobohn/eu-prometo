@@ -1,0 +1,14 @@
+pt:
+  hello: "Olá mundo"
+  attributes:
+    created_at: 'Criado em'
+    updated_at: 'Atualizado em'
+  activemodel:
+    attributes:
+      election:
+        description: 'Descrição'
+        emitido_em: 'Emissão'
+        recebido_em: 'Recepção'
+  activerecord:
+    models:
+      election: Eleição

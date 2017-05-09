@@ -63,3 +63,5 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'erubis'
 
 gem 'omniauth-facebook'
+
+gem 'chartjs-ror'

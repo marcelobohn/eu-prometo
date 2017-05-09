@@ -81,6 +81,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chartjs-ror (3.3.1)
+      rails (>= 3.1)
     childprocess (0.6.3)
       ffi (~> 1.0, >= 1.0.11)
     concurrent-ruby (1.0.5)
@@ -250,6 +252,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   capybara (~> 2.13.0)
+  chartjs-ror
   devise!
   erubis
   factory_girl_rails

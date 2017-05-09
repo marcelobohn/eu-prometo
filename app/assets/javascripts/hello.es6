@@ -7,6 +7,10 @@ class Hello {
 
 // new Hello();
 
+// $( document ).ready(function() {
+  // console.log( "document loaded" );
+// });
+
 $(document).on("click", "#teste", function(event){
 	event.preventDefault();
 	var person = prompt("Please enter your name", "Harry Potter");

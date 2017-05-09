@@ -1,3 +1,5 @@
 class Election < ApplicationRecord
-  enum type_election: [ :national, :municipal ]
+  def type_election_text
+    I18n.t(type_election, scope: [:codes, :election, :type], default: '?')
+  end
 end

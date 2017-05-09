@@ -1,20 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1><%= I18n.t('views.election.index.show_election') %></h1>
 
 <p>
-  <strong>Year:</strong>
+  <strong><%= I18n.t('views.election.columns.year') %>:</strong>
   <%= @election.year %>
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @election.type_election %>
+  <strong><%= I18n.t('views.election.columns.type') %>:</strong>
+  <%= @election.type_election_text %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= I18n.t('views.election.columns.description') %>:</strong>
   <%= @election.description %>
 </p>
 
-<%= link_to '<i class="glyphicon glyphicon-pencil"></i> Edit'.html_safe, edit_election_path(@election), class: 'btn btn-primary' %>
+<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe+I18n.t('views.edit'), edit_election_path(@election), class: 'btn btn-primary' %>
 
-<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> Back'.html_safe, elections_path, class: 'btn btn-primary' %>
+<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> '.html_safe+I18n.t('views.back'), elections_path, class: 'btn btn-primary' %>
