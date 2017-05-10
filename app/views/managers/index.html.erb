@@ -20,7 +20,7 @@
         <tr>
           <td><%= link_to manager.name, manager, :title => "Show Promises" %></td>
           <td><%= manager.election.year %></td>
-          <td>Local</td>
+          <td><%= manager.get_local %></td>
           <td><%= manager.type_manager_text %></td>
           <td><%= manager.start %></td>
           <td><%= manager.end %></td>

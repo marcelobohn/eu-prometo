@@ -1,31 +1,21 @@
 <div class="row">
-  <% @managers.each do |manager| %>
-    <div class="field form-group col-md-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          Prefeito(a) - Ivoti <%= manager.election.year %>
-        </div>
-        <div class="panel-body">
-          <div>
-            <div class="pull-left">
+  <h3>Cidades</h3>
+  <% @managers.where(type_manager: 0).limit(3).each do |manager| %>
+    <%= render 'manager', manager: manager %>
+  <% end %>
+</div>
 
-              <%= link_to manager.name, manager %>
-            </div>
-            <div class="pull-right">
-              <i class="glyphicon glyphicon-star-empty title-1"></i>
-            </div>
-          </div>
-          <div class="pull-left">
-            <br />
-            Promises: <%= manager.promise.count %><br />
-            Finished: <%= manager.promise.where.not(date_finish: nil).count %><br />
-            Pending: <%= manager.promise.where(date_finish: nil).count %><br />
-            <%= render 'bar', perc: '50' %>
-            <br />
-            <%= link_to 'Show promises', manager_promises_path(manager), class: 'btn btn-info', :title => "Show Promises" %>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="row">
+  <h3>Estados</h3>
+  <% @managers.where(type_manager: 1).limit(3).each do |manager| %>
+    <%= render 'manager', manager: manager %>
+  <% end %>
+</div>
+
+
+<div class="row">
+  <h3>Pais</h3>
+  <% @managers.where(type_manager: 2).limit(3).each do |manager| %>
+    <%= render 'manager', manager: manager %>
   <% end %>
 </div>
