@@ -4,3 +4,8 @@ pt:
       type:
         '0': 'Nacional'
         '1': 'Municipal'
+    manager:
+      type:
+        '0': 'Prefeito(a)'
+        '1': 'Governador(a)'
+        '2': 'Presidente(a)'

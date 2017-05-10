@@ -31,9 +31,10 @@ RSpec.describe Manager, type: :model do
     it "insert new manager of country" do
       manager = Manager.create! election: election, name: 'Dilma',
         country_id: country.id,
-        type_manager: :president, user: user
+        type_manager: 2, user: user
 
       expect(Manager.first.name).to eq('Dilma')
+      expect(Manager.first.type_manager_text).to eq('Presidente(a)')
     end
   end
 end

@@ -15,7 +15,11 @@ class Manager < ApplicationRecord
   has_many :promise
   # accepts_nested_attributes_for :promise
 
-  enum type_manager: [ :president, :governor, :mayor ]
+  # enum type_manager: [ :president, :governor, :mayor ]
 
   validates_with TypeManagerAddress
+
+  def type_manager_text
+    I18n.t(type_manager, scope: [:codes, :manager, :type], default: '?')
+  end
 end

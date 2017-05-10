@@ -44,22 +44,22 @@ election2014 = Election.create! year: 2014, type_election: 0, description: 'Norm
 election2016 = Election.create! year: 2016, type_election: 1, description: 'Normal'
 
 # presidente
-dilma = Manager.create! name: 'Dilma', election: election2014, country: br, type_manager: :president, user: marcelo
+dilma = Manager.create! name: 'Dilma', election: election2014, country: br, type_manager: 2, user: marcelo
 
 # governador
-sartori = Manager.create! name: 'José Ivo Sartori', election: election2014, country: br, state: rs, type_manager: :governor, user: marcelo
-pezao = Manager.create! name: 'Luiz Fernando Pezão', election: election2014, country: br, state: rj, type_manager: :governor, user: marcelo
-tiao_viana = Manager.create! name: 'Tião Viana', election: election2014, country: br, state: ac, type_manager: :governor, user: marcelo
-renan_filho = Manager.create! name: 'Renan Filho', election: election2014, country: br, state: al, type_manager: :governor, user: marcelo
-waldez = Manager.create! name: 'Waldez', election: election2014, country: br, state: ap, type_manager: :governor, user: marcelo
-eduardo_braga = Manager.create! name: 'Eduardo Braga', election: election2014, country: br, state: am, type_manager: :governor, user: marcelo
-rui_costa = Manager.create! name: 'Rui Costa', election: election2014, country: br, state: ba, type_manager: :governor, user: marcelo
-camilo = Manager.create! name: 'Camilo', election: election2014, country: br, state: ce, type_manager: :governor, user: marcelo
-rollemberg = Manager.create! name: 'Rollemberg', election: election2014, country: br, state: df, type_manager: :governor, user: marcelo
-paulo_hartung = Manager.create! name: 'Paulo Hartung', election: election2014, country: br, state: es, type_manager: :governor, user: marcelo
-marconi_perillo = Manager.create! name: 'Marconi Perillo', election: election2014, country: br, state: go, type_manager: :governor, user: marcelo
+sartori = Manager.create! name: 'José Ivo Sartori', election: election2014, country: br, state: rs, type_manager: 1, user: marcelo
+pezao = Manager.create! name: 'Luiz Fernando Pezão', election: election2014, country: br, state: rj, type_manager: 1, user: marcelo
+tiao_viana = Manager.create! name: 'Tião Viana', election: election2014, country: br, state: ac, type_manager: 1, user: marcelo
+renan_filho = Manager.create! name: 'Renan Filho', election: election2014, country: br, state: al, type_manager: 1, user: marcelo
+waldez = Manager.create! name: 'Waldez', election: election2014, country: br, state: ap, type_manager: 1, user: marcelo
+eduardo_braga = Manager.create! name: 'Eduardo Braga', election: election2014, country: br, state: am, type_manager: 1, user: marcelo
+rui_costa = Manager.create! name: 'Rui Costa', election: election2014, country: br, state: ba, type_manager: 1, user: marcelo
+camilo = Manager.create! name: 'Camilo', election: election2014, country: br, state: ce, type_manager: 1, user: marcelo
+rollemberg = Manager.create! name: 'Rollemberg', election: election2014, country: br, state: df, type_manager: 1, user: marcelo
+paulo_hartung = Manager.create! name: 'Paulo Hartung', election: election2014, country: br, state: es, type_manager: 1, user: marcelo
+marconi_perillo = Manager.create! name: 'Marconi Perillo', election: election2014, country: br, state: go, type_manager: 1, user: marcelo
 
 # prefeito
-maria = Manager.create! name: 'Maria', election: election2016, country: br, state: rs, city: ivoti, type_manager: :mayor, user: marcelo
+maria = Manager.create! name: 'Maria', election: election2016, country: br, state: rs, city: ivoti, type_manager: 0, user: marcelo
 
 Promise.create! manager:maria, description: 'prometo que ...', user_create_id: marcelo.id

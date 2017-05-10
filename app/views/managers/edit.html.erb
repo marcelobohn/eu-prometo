@@ -2,5 +2,5 @@
 
 <%= render 'form', manager: @manager %>
 
-<%= link_to 'Show', @manager, class: 'btn btn-primary' %> |
-<%= link_to 'Back', managers_path, class: 'btn btn-primary' %>
+<%= link_to '<i class="glyphicon glyphicon-file"></i> '.html_safe+I18n.t('views.show'), @manager, class: 'btn btn-primary' %> |
+<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i>'.html_safe+I18n.t('views.back'), managers_path, class: 'btn btn-primary' %>

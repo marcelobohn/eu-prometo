@@ -12,3 +12,5 @@ pt:
   activerecord:
     models:
       election: Eleição
+      manager: Administrador
+      promise: Promessa

@@ -30,7 +30,7 @@ class ElectionsController < ApplicationController
 
     respond_to do |format|
       if @election.save
-        format.html { redirect_to @election, notice: I18n.t('views.election.flash_messages.election_was_successfully_created')  }
+        format.html { redirect_to @election, notice: I18n.t('views.election.flash_messages.was_successfully_created')  }
         format.json { render :show, status: :created, location: @election }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ElectionsController < ApplicationController
   def update
     respond_to do |format|
       if @election.update(election_params)
-        format.html { redirect_to @election, notice: I18n.t('views.election.flash_messages.election_was_successfully_updated') }
+        format.html { redirect_to @election, notice: I18n.t('views.election.flash_messages.was_successfully_updated') }
         format.json { render :show, status: :ok, location: @election }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ElectionsController < ApplicationController
     @election.destroy
     respond_to do |format|
       # format.html { redirect_to elections_url, notice: 'Election was successfully destroyed.' }
-      format.html { redirect_to elections_url, notice: I18n.t('views.election.flash_messages.election_was_successfully_destroyed') }
+      format.html { redirect_to elections_url, notice: I18n.t('views.election.flash_messages.was_successfully_destroyed') }
       format.json { head :no_content }
     end
   end
