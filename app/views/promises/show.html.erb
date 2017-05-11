@@ -1,31 +1,46 @@
-<p id="notice"><%= notice %></p>
-
 <%= render 'manager', manager: @manager %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @promise.description %>
-</p>
+<span class="title-resource"><%= I18n.t('views.promise.index.show') %></span>
 
-<p>
-  <strong>Date finish:</strong>
-  <%= @promise.date_finish %>
-</p>
+<div class="row">
+  <div class="field form-group col-md-3">
+    <label><%= I18n.t('views.promise.columns.created_at') %></label>
+    <span style="display: block"><%= @promise.created_at %></span>
+  </div>
+  <div class="field form-group col-md-9">
+    <label><%= I18n.t('views.promise.columns.user_create_id') %></label>
+    <span style="display: block"><%= @promise.user_create_id ? User.find(@promise.user_create_id).email : '' %></span>
+  </div>
+</div>
 
-<p>
-  <strong>Description finish:</strong>
-  <%= @promise.description_finish %>
-</p>
+<div class="row">
+  <div class="field form-group col-md-12">
+    <label><%= I18n.t('views.promise.columns.description') %></label>
+    <span style="display: block"><%= @promise.description %></span>
+  </div>
+</div>
 
-<p>
-  <strong>User create:</strong>
-  <%= @promise.user_create_id ? User.find(@promise.user_create_id).email : '' %>
-</p>
+<div class="row">
+  <div class="field form-group col-md-3">
+    <label><%= I18n.t('views.promise.columns.date_finish') %></label>
+    <span style="display: block"><%= @promise.date_finish %></span>
+  </div>
+  <div class="field form-group col-md-9">
+    <label><%= I18n.t('views.promise.columns.user_finish') %></label>
+    <span style="display: block"><%= @promise.user_finish %></span>
+  </div>
+</div>
 
-<p>
-  <strong>User finish:</strong>
-  <%= @promise.user_finish %>
-</p>
+<div class="row">
+  <div class="field form-group col-md-12">
+    <label><%= I18n.t('views.promise.columns.description_finish') %></label>
+    <span style="display: block"><%= @promise.description_finish %></span>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_manager_promise_path(@manager, @promise) %> |
-<%= link_to 'Back', manager_promises_path %>
+<hr />
+
+<div class="pull-right">
+  <%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe+I18n.t('views.edit'), edit_manager_promise_path(@manager, @promise), class: 'btn btn-primary' %> |
+  <%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> '.html_safe+I18n.t('views.back'), manager_promises_path, class: 'btn btn-primary' %>
+</div>

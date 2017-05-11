@@ -1,2 +1,5 @@
-<p>Manager: <%= link_to manager.name, manager_path(manager) %></p>
+<div>
+  <p><%= manager.type_manager_text %> <%= link_to manager.name, manager_path(manager) %></p>
+  <p><%= manager.get_local %> | <%= manager.election.year %></p>
+</div>
 <hr />

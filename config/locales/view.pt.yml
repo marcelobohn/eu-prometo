@@ -27,13 +27,28 @@ pt:
         edit: Editando administrador
         show: Exibindo administrador
       columns:
-        description: Descrição
-        type: Tipo
-        year: Ano
       flash_messages:
         was_successfully_created: 'Administrador foi criado com sucesso.'
-        was_successfully_updated: 'Eleição foi atualizada com sucesso.'
-        was_successfully_destroyed: 'Eleição foi excluída com sucesso.'
+        was_successfully_updated: 'Administrador foi atualizado com sucesso.'
+        was_successfully_destroyed: 'Administrador foi excluído com sucesso.'
+    promise:
+      index:
+        title: Promessas
+        new: Nova promessa
+        edit: Editando promessa
+        show: Exibindo promessa
+        finish: Finalizando promessa
+      columns:
+        description: Descrição promessa
+        date_finish: Data conclusão
+        created_at: Data cadastro
+        description_finish: Descrição conclusão
+        user_create_id: Usuário cadastro
+        user_finish: Usuário conclusão
+      flash_messages:
+        was_successfully_created: 'Promessa foi criada com sucesso.'
+        was_successfully_updated: 'Promessa foi atualizada com sucesso.'
+        was_successfully_destroyed: 'Promessa foi excluída com sucesso.'
 
   helpers:
     submit:

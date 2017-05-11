@@ -1,28 +1,29 @@
 <%= render 'manager', manager: @manager %>
 
-<h1>Promises</h1>
+<span class="title-resource"><%= I18n.t('views.promise.index.title') %></span>
 
 <div class="table-responsive">
   <table class="table">
     <thead>
       <tr>
-        <th style="width: 600px">Description</th>
-        <th style="width: 200px">Status</th>
-        <th></th>
+        <th><%= I18n.t('views.promise.columns.description') %></th>
+        <th style="width: 200px"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @promises.each do |promise| %>
         <tr>
-          <td><%= link_to promise.description, manager_promise_path(@manager, promise), :title => "Show" %></td>
           <td>
+            <span class="title-1"><%= link_to promise.description, manager_promise_path(@manager, promise), :title => "Show" %></span><br />
             <span class="<%= promise.get_status[:class] %>" title="<%= promise.user_create_id ? User.find(promise.user_create_id).email : '' %>"><%= promise.get_status[:type].upcase %></span>
           </td>
-          <td>
-            <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_manager_promise_path(@manager, promise), class: 'btn btn-primary', :title => "Edit" %>
+          <td class="text-right">
             <% if !promise.date_finish %>
-            <%= link_to '<i class="glyphicon glyphicon-ok"></i>'.html_safe, manager_promise_finish_path(@manager, promise), class: 'btn btn-success', :title => "Finish" %>
+              <%= link_to '<i class="glyphicon glyphicon-ok"></i>'.html_safe, manager_promise_finish_path(@manager, promise), class: 'btn btn-success', :title => "Finish" %>
+            <% end %>
+            <% if promise.user_create_id == current_user.id %>
+              <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_manager_promise_path(@manager, promise), class: 'btn btn-primary', :title => "Edit" %>
             <% end %>
             <%#= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', :title => "Delete" %>
           </td>
@@ -34,4 +35,4 @@
 
 <br>
 
-<%= link_to '<i class="glyphicon glyphicon-file"></i> New Promise'.html_safe, new_manager_promise_path, class: 'btn btn-primary' %>
+<%= link_to '<i class="glyphicon glyphicon-file"></i> '.html_safe+I18n.t('views.promise.index.new'), new_manager_promise_path, class: 'btn btn-primary' %>

@@ -12,12 +12,11 @@
   <% end %>
   <%= form.text_field :manager_id, id: :promise_manager_id, class: 'form-control', type: 'hidden' %>
 
-
   <div class="row">
     <div class="field form-group col-md-12">
       <%= form.label :description %>
       <% if @finishing %>
-        <%= promise.description %>
+        <span style="display:block"><%= promise.description %></span>
       <% else %>
         <%= form.text_area :description, id: :promise_description, class: 'form-control' %>
       <% end %>

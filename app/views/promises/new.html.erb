@@ -1,5 +1,11 @@
-<h1>New Promise</h1>
+<%= render 'manager', manager: @manager %>
+
+<span class="title-resource"><%= I18n.t('views.promise.index.new') %></span>
 
 <%= render 'form', promise: @promise %>
 
-<%= link_to 'Back', manager_promises_path, class: 'btn btn-primary' %>
+<hr />
+
+<div class="pull-right">
+  <%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> '.html_safe+I18n.t('views.back'), manager_promises_path, class: 'btn btn-primary' %>
+</div>

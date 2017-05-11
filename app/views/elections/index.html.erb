@@ -1,12 +1,12 @@
-<h1><%= I18n.t('views.election.index.title') %></h1>
+<span class="title-resource"><%= I18n.t('views.election.index.title') %></span>
 
 <div class="table-responsive">
   <table class="table">
     <thead>
       <tr>
         <th><%= I18n.t('views.election.columns.description') %></th>
-        <th><%= I18n.t('views.election.columns.type') %></th>
-        <th style="width: 300px"></th>
+        <th style="width: 200px"><%= I18n.t('views.election.columns.type') %></th>
+        <th style="width: 100px"></th>
       </tr>
     </thead>
 
@@ -15,7 +15,7 @@
         <tr>
           <td><%= link_to election.year.to_s+' - '+election.description, election %></td>
           <td><%= election.type_election_text %></td>
-          <td>
+          <td class="text-right">
             <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_election_path(election), class: 'btn btn-primary' %>
             <%#= link_to '<i class="glyphicon glyphicon-remove"></i> Destroy'.html_safe, election, method: :delete, data: { confirm: I18n.t('views.are_you_sure') }, class: 'btn btn-danger' %>
           </td>

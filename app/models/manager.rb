@@ -26,7 +26,7 @@ class Manager < ApplicationRecord
   def get_local
     case type_manager
     when 0
-      city.name
+      city.name + ' - ' + state.abbrev
     when 1
       state.name
     when 2
