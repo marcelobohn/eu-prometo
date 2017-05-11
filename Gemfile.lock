@@ -72,6 +72,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-social-rails (4.12.0)
+      railties (>= 3.1)
     builder (3.2.3)
     byebug (9.0.6)
     capybara (2.13.0)
@@ -98,6 +100,8 @@ GEM
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hashie (3.5.5)
@@ -250,12 +254,14 @@ PLATFORMS
 DEPENDENCIES
   babel-transpiler
   bootstrap-sass (~> 3.3.6)
+  bootstrap-social-rails
   byebug
   capybara (~> 2.13.0)
   chartjs-ror
   devise!
   erubis
   factory_girl_rails
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

@@ -8,9 +8,17 @@ pt:
       election:
         description: 'Descrição'
         emitido_em: 'Emissão'
-        recebido_em: 'Recepção'
+        recebido_em: 'Recepção'     
   activerecord:
     models:
       election: Eleição
       manager: Administrador
       promise: Promessa
+  helpers:
+    label:
+      user:
+        name: Nome do usuário
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha
+        current_password: Senha atual
