@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'about', to: 'about#index'
   get 'contact', to: 'contact#index'
+  get 'support', to: 'support#index'
 
   resources :elections
   resources :managers do

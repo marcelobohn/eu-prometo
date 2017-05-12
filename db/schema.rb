@@ -12,34 +12,34 @@
 
 ActiveRecord::Schema.define(version: 20170512002047) do
 
-  create_table "cities", force: :cascade do |t|
+  create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "abbrev"
-    t.integer "state_id"
+    t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
     t.integer "type_contact"
     t.text "description"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "readed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table "countries", force: :cascade do |t|
+  create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "elections", force: :cascade do |t|
+  create_table "elections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "year"
     t.integer "type_election"
     t.string "description"
@@ -47,24 +47,24 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "managers", force: :cascade do |t|
+  create_table "managers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "election_id"
+    t.bigint "election_id"
     t.integer "country_id"
     t.integer "state_id"
     t.integer "city_id"
     t.integer "type_manager"
     t.date "start"
     t.date "end"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["election_id"], name: "index_managers_on_election_id"
     t.index ["user_id"], name: "index_managers_on_user_id"
   end
 
-  create_table "promises", force: :cascade do |t|
-    t.integer "manager_id"
+  create_table "promises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "manager_id"
     t.text "description"
     t.date "date_finish"
     t.text "description_finish"
@@ -75,16 +75,16 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.index ["manager_id"], name: "index_promises_on_manager_id"
   end
 
-  create_table "states", force: :cascade do |t|
+  create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "abbrev"
-    t.integer "country_id"
+    t.bigint "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -106,4 +106,10 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cities", "states"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "managers", "elections"
+  add_foreign_key "managers", "users"
+  add_foreign_key "promises", "managers"
+  add_foreign_key "states", "countries"
 end
