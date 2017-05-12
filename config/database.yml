@@ -9,14 +9,24 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: false
+#   database: euprometo_dev
+#   host: 127.0.0.1
+#   username: root
+#   password: ""
+
 development:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  reconnect: false
   database: euprometo_dev
-  host: 127.0.0.1
-  username: root
-  password: ""
+  pool: 5
+  username: postgres
+  password: '123456'
+  host: localhost
+  
 
 # development:
 #   <<: *default
@@ -33,10 +43,16 @@ test:
   # <<: *default
   # database: db/production.sqlite3
 
+# production:
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: false
+#   write_timeout: 1
+#   read_timeout: 30
+#   pool: 5
+
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  reconnect: false
-  write_timeout: 1
-  read_timeout: 30
+  database: euprometo_prd
   pool: 5

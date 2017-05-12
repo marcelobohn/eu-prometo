@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20170512002047) do
 
-  create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "abbrev"
     t.bigint "state_id"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
-  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.integer "type_contact"
@@ -33,13 +36,13 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "countries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "elections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "elections", force: :cascade do |t|
     t.integer "year"
     t.integer "type_election"
     t.string "description"
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "managers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "managers", force: :cascade do |t|
     t.string "name"
     t.bigint "election_id"
     t.integer "country_id"
@@ -63,7 +66,7 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.index ["user_id"], name: "index_managers_on_user_id"
   end
 
-  create_table "promises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "promises", force: :cascade do |t|
     t.bigint "manager_id"
     t.text "description"
     t.date "date_finish"
@@ -75,7 +78,7 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.index ["manager_id"], name: "index_promises_on_manager_id"
   end
 
-  create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "abbrev"
     t.bigint "country_id"
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
