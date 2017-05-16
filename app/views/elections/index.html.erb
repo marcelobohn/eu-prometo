@@ -25,4 +25,6 @@
   </table>
 </div>
 
+<%= paginate @elections %>
+
 <%= link_to "<i class=\"glyphicon glyphicon-file\"></i> ".html_safe+I18n.t('views.election.index.new'), new_election_path, class: 'btn btn-primary' %>

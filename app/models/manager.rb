@@ -19,6 +19,8 @@ class Manager < ApplicationRecord
 
   validates_with TypeManagerAddress
 
+  max_paginates_per 10
+
   def type_manager_text
     I18n.t(type_manager, scope: [:codes, :manager, :type], default: '?')
   end

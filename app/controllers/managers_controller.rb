@@ -6,7 +6,7 @@ class ManagersController < ApplicationController
   # GET /managers
   # GET /managers.json
   def index
-    @managers = Manager.all
+    @managers = Manager.page params[:page]
   end
 
   # GET /managers/1

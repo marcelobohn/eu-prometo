@@ -36,6 +36,8 @@ es = State.create! name: 'Espírito Santo', abbrev: 'ES', country: br
 rs = State.create! name: 'Rio Grande do Sul', abbrev: 'RS', country: br
 
 ivoti = City.create! name: 'Ivoti', state: rs
+novoHamburgo = City.create! name: 'Novo Hamburgo', state: rs
+portoAlegre = City.create! name: 'Porto Alegre', state: rs
 
 marcelo = User.create! email: 'marcelo@bohn.com.br', password: '123123', password_confirmation: '123123', admin: true
 admin = User.create! email: 'admin@euprometoavoce.com.br', password: '123123', password_confirmation: '123123', admin: true
@@ -61,5 +63,7 @@ marconi_perillo = Manager.create! name: 'Marconi Perillo', election: election201
 
 # prefeito
 maria = Manager.create! name: 'Maria', election: election2016, country: br, state: rs, city: ivoti, type_manager: 0, user: marcelo
+fatima_daudt = Manager.create! name: 'Fatima Daudt', election: election2016, country: br, state: rs, city: novoHamburgo, type_manager: 0, user: marcelo
+nelson_marchezan_junior = Manager.create! name: 'Nelson Marchezan Junior', election: election2016, country: br, state: rs, city: portoAlegre, type_manager: 0, user: marcelo
 
 Promise.create! manager:maria, description: 'prometo que ...', user_create_id: marcelo.id

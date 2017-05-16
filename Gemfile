@@ -76,3 +76,6 @@ gem 'devise-i18n'
 gem 'omniauth-facebook'
 
 gem 'chartjs-ror'
+
+gem 'kaminari'
+gem 'kaminari-i18n'

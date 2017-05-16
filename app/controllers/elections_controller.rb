@@ -6,7 +6,7 @@ class ElectionsController < ApplicationController
   # GET /elections
   # GET /elections.json
   def index
-    @elections = Election.all
+    @elections = Election.page params[:page]
   end
 
   # GET /elections/1
