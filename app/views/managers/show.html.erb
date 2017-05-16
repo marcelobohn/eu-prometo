@@ -30,7 +30,7 @@
 
 <p>
   <strong>Start:</strong>
-  <%= l @manager.start %>
+  <%= @manager.start.nil? ? '' : (l @manager.start) %>
 </p>
 
 <p>

@@ -1,0 +1,32 @@
+pt-BR:
+  hello: "Olá mundo"
+  attributes:
+    created_at: 'Criado em'
+    updated_at: 'Atualizado em'
+  activemodel:
+    attributes:
+      election:
+        description: 'Descrição'
+        emitido_em: 'Emissão'
+        recebido_em: 'Recepção'  
+  activerecord:
+    models:
+      election: 
+        one: Eleição
+        other: Eleições
+      manager: 
+        one: Administrador
+        other: Administradores
+      promise: Promessa
+    attributes:
+      manager:
+        name: 'Nome'      
+        election: 'Eleição'              
+  helpers:
+    label:
+      user:
+        name: Nome do usuário
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha
+        current_password: Senha atual
