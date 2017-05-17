@@ -26,9 +26,9 @@ RSpec.describe Promise, type: :model do
     it "insert new manager of city" do
       promise = Promise.create! manager:manager, description: 'prometo que ...', user_create_id: user.id
 
-      expect(promise.get_status[:type]).to eq(:open)
-      expect(promise.get_status[:class]).to eq('label label-warning cursor-pointer')
-      expect(promise.get_status).to eq({type: :open, class: 'label label-warning cursor-pointer'})
+      expect(promise.get_status[:type]).to eq("Aberta")
+      expect(promise.get_status[:class]).to eq('label label-warning cursor-default')
+      expect(promise.get_status).to eq({type: "Aberta", class: 'label label-warning cursor-default'})
     end
   end
 
