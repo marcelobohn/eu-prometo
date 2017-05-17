@@ -1,5 +1,12 @@
-<div>
-  <p><%= manager.type_manager_text %> <%= link_to manager.name, manager_path(manager) %></p>
-  <p><%= manager.get_local %> | <%= manager.election.year %></p>
+<% resume = manager.get_resume_promises %>
+<div class="row row-custom-1">        
+  <p><%= manager.type_manager_text %> <b><%= manager.name %></b> | <%= manager.get_local %> | Eleição: <%= manager.election.year %></p>
+  <span class="title-2">Total de promessas: <%= resume[:total] %> | 
+  Cumpridas: <%= resume[:finished][:count] %> |
+  Pendetes: <%= resume[:opened][:count] %></span>
 </div>
+<div class="row row-custom-1">
+  <%= render 'home/bar', perc: resume[:finished][:perc] %>
+</div>
+
 <hr />

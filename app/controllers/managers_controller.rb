@@ -12,6 +12,7 @@ class ManagersController < ApplicationController
   # GET /managers/1
   # GET /managers/1.json
   def show
+    redirect_to manager_promises_path(@manager)
   end
 
   # GET /managers/new
