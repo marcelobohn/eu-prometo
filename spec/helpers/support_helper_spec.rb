@@ -11,5 +11,8 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe SupportHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # pending "add some examples to (or delete) #{__FILE__}"
+  it "teste no helper" do
+    expect(helper.teste).to eq("retorno");
+  end
 end

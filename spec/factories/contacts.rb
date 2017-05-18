@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :contact do
-    name "MyString"
-    email "MyString"
+    name "Carlos"
+    email "carlos@carlos.com"
     type_contact 1
-    description "MyText"
+    description "Olá teste de contato"
     user nil
-    readed "2017-05-11 21:20:47"
+    readed nil
   end
 end
