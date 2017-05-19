@@ -1,12 +1,12 @@
 <div class="row">
-  <h3>Cidades</h3>
+  <div>Cidades</div>
   <% @managers.where(type_manager: 0).limit(3).each do |manager| %>
     <%= render 'manager', manager: manager %>
   <% end %>
 </div>
 
 <div class="row">
-  <h3>Estados</h3>
+  <div>Estados</div>
   <% @managers.where(type_manager: 1).limit(3).each do |manager| %>
     <%= render 'manager', manager: manager %>
   <% end %>
@@ -14,7 +14,7 @@
 
 
 <div class="row">
-  <h3>Pais</h3>
+  <div>Pais</div>
   <% @managers.where(type_manager: 2).limit(3).each do |manager| %>
     <%= render 'manager', manager: manager %>
   <% end %>

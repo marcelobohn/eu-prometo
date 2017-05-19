@@ -32,3 +32,9 @@
 .title-resource { font-size: 36px }
 
 .row-custom-1 { padding: 8px }
+
+@media screen and (max-width: 480px) { 
+  .title-1 { font-size: 12px }
+  .title-2 { font-size: 18px }
+  .title-resource { font-size: 26px }
+}
