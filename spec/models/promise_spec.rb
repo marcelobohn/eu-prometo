@@ -2,28 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Promise, type: :model do
   let(:election) do
-    Election.create! year: 2014, type_election: :national
+    create(:election)
   end
   let(:user) do
-    User.create! email: 'admin@euprometoavoce.com.br', password: '123123', password_confirmation: '123123'
+    create(:user)
   end
   let(:country) do
-    Country.create! name: 'Brasil'
+    create(:country)
   end
   let(:state) do
-    State.create! name: 'Rio Grande do Sul', abbrev: 'RS', country: country
+    create(:state, country: country)
   end
   let(:city) do
-    City.create! name: 'Ivoti', state: state
+    create(:city, state: state)
   end
   let(:manager) do
-    Manager.create! election: election, name: 'Maria',
-      country_id: country.id, state_id: state.id, city_id: city.id,
-      type_manager: :mayor, user: user
+    create(:manager, :mayor, election: election, country_id: country.id, state_id: state.id, city_id: city.id, user: user)  
   end
 
-  context 'promise open' do
-    it "insert new manager of city" do
+  context 'validate create' do
+    it "create promise" do
       promise = Promise.create! manager:manager, description: 'prometo que ...', user_id: user.id
 
       expect(promise.get_status[:type]).to eq("Aberta")
@@ -31,5 +29,17 @@ RSpec.describe Promise, type: :model do
       expect(promise.get_status).to eq({type: "Aberta", class: 'label label-warning cursor-default'})
     end
   end
+
+  context 'validate finish' do
+    it "create promise and finish" do
+      promise = Promise.create! manager:manager, description: 'prometo que ...', user_id: user.id
+      promise.finish('foi comprido', user.id)
+      promise.reload
+
+      expect(promise.get_status[:type]).to eq("Fechada")
+      expect(promise.description_finish).to eq("foi comprido")
+      expect(promise.user_finish).to eq(user.id)
+    end
+  end  
 
 end

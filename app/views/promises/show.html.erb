@@ -20,23 +20,26 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="field form-group col-md-3">
-    <label><%= I18n.t('views.promise.columns.date_finish') %></label>
-    <span style="display: block"><%= @promise.date_finish %></span>
+<% if (@promise.date_finish) %>
+  <hr />
+  <div class="row">
+    <div class="field form-group col-md-3">
+      <label><%= I18n.t('views.promise.columns.date_finish') %></label>
+      <span style="display: block"><%= @promise.date_finish %></span>
+    </div>
+    <div class="field form-group col-md-9">
+      <label><%= I18n.t('views.promise.columns.user_finish') %></label>
+      <span style="display: block"><%= @promise.user_finish_email %></span>
+    </div>
   </div>
-  <div class="field form-group col-md-9">
-    <label><%= I18n.t('views.promise.columns.user_finish') %></label>
-    <span style="display: block"><%= @promise.user_finish %></span>
-  </div>
-</div>
 
-<div class="row">
-  <div class="field form-group col-md-12">
-    <label><%= I18n.t('views.promise.columns.description_finish') %></label>
-    <span style="display: block"><%= @promise.description_finish %></span>
+  <div class="row">
+    <div class="field form-group col-md-12">
+      <label><%= I18n.t('views.promise.columns.description_finish') %></label>
+      <span style="display: block"><%= @promise.description_finish %></span>
+    </div>
   </div>
-</div>
+<% end %>
 
 <hr />
 

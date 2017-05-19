@@ -29,7 +29,6 @@ class PromisesController < ApplicationController
   def finish
     @finishing = true
     @promise.date_finish = Time.now.strftime("%Y-%m-%d")
-    @promise.user_finish = current_user.id  
   end
 
   # POST /promises
@@ -52,13 +51,18 @@ class PromisesController < ApplicationController
   # PATCH/PUT /promises/1
   # PATCH/PUT /promises/1.json
   def update
-    respond_to do |format|
-      if @promise.update(promise_params)
-        format.html { redirect_to manager_promises_path(@manager), notice: 'Promise was successfully updated.' }
-        format.json { render :show, status: :ok, location: @promise }
-      else
-        format.html { render :edit }
-        format.json { render json: @promise.errors, status: :unprocessable_entity }
+    if !promise_params['description_finish'].nil?
+      @promise.finish(promise_params['description_finish'], current_user.id)
+      redirect_to manager_promises_path(@manager), notice: 'Promise was successfully finished.'
+    else
+      respond_to do |format|
+        if @promise.update(promise_params)
+          format.html { redirect_to manager_promises_path(@manager), notice: 'Promise was successfully updated.' }
+          format.json { render :show, status: :ok, location: @promise }
+        else
+          format.html { render :edit }
+          format.json { render json: @promise.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

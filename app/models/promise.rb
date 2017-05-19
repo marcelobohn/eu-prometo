@@ -1,9 +1,6 @@
 class Promise < ApplicationRecord
   belongs_to :manager
   belongs_to :user
-  # belongs_to :user, :foreign_key "user_finish"
-  # belongs_to :manager, class_name: "Employee"
-  # belongs_to :user_finish, class_name: "User", optional: true
 
   def get_status
     if date_finish.nil?
@@ -11,5 +8,13 @@ class Promise < ApplicationRecord
     else
       {type: I18n.t(1, scope: [:codes, :promise, :status], default: '?'), class: 'label label-success cursor-default'}
     end
+  end
+
+  def finish(description, user_id = nil)
+    self.update_attributes! description_finish: description, user_finish: user_id, date_finish: Date.today
+  end
+
+  def user_finish_email
+    self.user_finish ? User.find(self.user_finish).email : nil
   end
 end
