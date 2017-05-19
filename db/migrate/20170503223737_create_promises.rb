@@ -5,7 +5,7 @@ class CreatePromises < ActiveRecord::Migration[5.1]
       t.text :description
       t.date :date_finish
       t.text :description_finish
-      t.integer :user_create_id
+      t.references :user, foreign_key: true
       t.integer :user_finish
 
       t.timestamps

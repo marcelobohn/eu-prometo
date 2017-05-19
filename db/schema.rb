@@ -71,11 +71,12 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.text "description"
     t.date "date_finish"
     t.text "description_finish"
-    t.integer "user_create_id"
+    t.bigint "user_id"
     t.integer "user_finish"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_promises_on_manager_id"
+    t.index ["user_id"], name: "index_promises_on_user_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -114,5 +115,6 @@ ActiveRecord::Schema.define(version: 20170512002047) do
   add_foreign_key "managers", "elections"
   add_foreign_key "managers", "users"
   add_foreign_key "promises", "managers"
+  add_foreign_key "promises", "users"
   add_foreign_key "states", "countries"
 end

@@ -66,4 +66,4 @@ maria = Manager.create! name: 'Maria', election: election2016, country: br, stat
 fatima_daudt = Manager.create! name: 'Fatima Daudt', election: election2016, country: br, state: rs, city: novoHamburgo, type_manager: 0, user: marcelo
 nelson_marchezan_junior = Manager.create! name: 'Nelson Marchezan Junior', election: election2016, country: br, state: rs, city: portoAlegre, type_manager: 0, user: marcelo
 
-Promise.create! manager:maria, description: 'prometo que ...', user_create_id: marcelo.id
+Promise.create! manager:maria, description: 'prometo que ...', user: marcelo

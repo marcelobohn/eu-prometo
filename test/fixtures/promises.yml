@@ -5,7 +5,7 @@ one:
   description: MyText
   date_finish: 2017-05-03
   description_finish: MyText
-  user_create_id: 1
+  user_id: 1
   user_finish: 1
 
 two:
@@ -13,5 +13,5 @@ two:
   description: MyText
   date_finish: 2017-05-03
   description_finish: MyText
-  user_create_id: 1
+  user_id: 1
   user_finish: 1

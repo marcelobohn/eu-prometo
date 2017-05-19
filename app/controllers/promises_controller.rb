@@ -29,13 +29,14 @@ class PromisesController < ApplicationController
   def finish
     @finishing = true
     @promise.date_finish = Time.now.strftime("%Y-%m-%d")
+    @promise.user_finish = current_user.id  
   end
 
   # POST /promises
   # POST /promises.json
   def create
     @promise = Promise.new(promise_params)
-    @promise.user_create_id = current_user.id
+    @promise.user = current_user
 
     respond_to do |format|
       if @promise.save
@@ -81,6 +82,6 @@ class PromisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def promise_params
-      params.require(:promise).permit(:manager_id, :description, :date_finish, :description_finish, :user_create_id, :user_finish)
+      params.require(:promise).permit(:manager_id, :description, :date_finish, :description_finish, :user_id, :user_finish)
     end
 end

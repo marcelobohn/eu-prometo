@@ -8,8 +8,8 @@
     <span style="display: block"><%= l @promise.created_at %></span>
   </div>
   <div class="field form-group col-md-9">
-    <label><%= I18n.t('views.promise.columns.user_create_id') %></label>
-    <span style="display: block"><%= @promise.user_create_id ? User.find(@promise.user_create_id).email : '' %></span>
+    <label><%= I18n.t('views.promise.columns.user_id') %></label>
+    <span style="display: block"><%= @promise.user_id ? User.find(@promise.user_id).email : '' %></span>
   </div>
 </div>
 

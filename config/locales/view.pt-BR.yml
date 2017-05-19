@@ -43,7 +43,7 @@ pt-BR:
         date_finish: Data conclusão
         created_at: Data cadastro
         description_finish: Descrição conclusão
-        user_create_id: Usuário cadastro
+        user_id: Usuário cadastro
         user_finish: Usuário conclusão
       flash_messages:
         was_successfully_created: 'Promessa foi criada com sucesso.'

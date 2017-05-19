@@ -1,11 +1,12 @@
 <div class="field form-group col-md-4">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <%= manager.type_manager_text %> - <%= manager.get_local %> | <%= manager.election.year %>
+      <%= manager.get_local %> | <%= manager.election.year %>
     </div>
     <div class="panel-body">
       <div class="row row-custom-1">
-        <div class="pull-left title-2">
+        <%= manager.type_manager_text %> <br />
+        <div class="pull-left title-2">    
           <%= link_to manager.name, manager %>
         </div>
         <div class="pull-right">
@@ -18,7 +19,7 @@
         Cumpridas: <%= resume[:finished][:count] %> |
         Pendetes: <%= resume[:opened][:count] %><br />
       </div>
-      <div class="row row-custom-1">
+      <div class="row row-custom-1 height-26">
         <%= render 'bar', perc: resume[:finished][:perc] %>
       </div>
       <div class="row row-custom-1">
