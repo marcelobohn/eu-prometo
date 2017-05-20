@@ -1,5 +1,13 @@
 <div class="row">
-  <div class="well well-sm">Cidades</div>
+  <div class="well well-sm">
+    <%= link_to 'Prefeitos', cities_path %>
+    <div class="pull-right">
+      <%= form_tag cities_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Pesquisa", :name => nil %>
+      <% end %>
+    </div>
+  </div>    
   <% @managers.each do |manager| %>
     <%= render 'manager', manager: manager %>
   <% end %>

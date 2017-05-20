@@ -47,4 +47,10 @@ class Manager < ApplicationRecord
     }
   end
 
+  def self.search(search)
+    @managers = Manager.where(type_manager: search[:type_manager] || 0)
+    @managers = @managers.where('lower(name) like ?', '%'+search[:text].downcase+'%') if (search[:text])
+    @managers = @managers.limit(10)    
+  end
+
 end

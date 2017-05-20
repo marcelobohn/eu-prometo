@@ -1,5 +1,13 @@
 <div class="row">
-  <div class="well well-sm"><%= link_to 'Estados', states_path %></div>
+  <div class="well well-sm">
+    <%= link_to 'Governadores', states_path %>
+    <div class="pull-right">
+      <%= form_tag states_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Pesquisa", :name => nil %>
+      <% end %>
+    </div>
+  </div>    
   <% @managers.where(type_manager: 1).limit(3).each do |manager| %>
     <%= render 'manager', manager: manager %>
   <% end %>
