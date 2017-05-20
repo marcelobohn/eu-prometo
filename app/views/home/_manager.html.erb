@@ -24,7 +24,7 @@
       </div>
       <div class="row row-custom-1">
         <% text_promise = resume[:total] == 0 ? 'Cadastrar a primeira promessa' : 'Exibir promessas' %>
-        <%= link_to text_promise, manager_promises_path(manager), class: 'btn btn-info', :title => "Show Promises" %>
+        <%= link_to text_promise, manager_promises_path(manager), class: 'btn btn-info btn-sm', :title => "Show Promises" %>
       </div>
     </div>
   </div>

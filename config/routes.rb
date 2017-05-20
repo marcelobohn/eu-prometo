@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'home/index'
-
+  get 'cities', to: 'home#cities'
+  get 'states', to: 'home#states'
+  get 'countries', to: 'home#countries'
   get 'about', to: 'about#index'
   get 'contact', to: 'contact#index'
   get 'support', to: 'support#index'

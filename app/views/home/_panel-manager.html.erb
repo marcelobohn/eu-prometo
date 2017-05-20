@@ -1,21 +1,5 @@
-<div class="row">
-  <div class="well well-sm">Cidades</div>
-  <% @managers.where(type_manager: 0).limit(3).each do |manager| %>
-    <%= render 'manager', manager: manager %>
-  <% end %>
-</div>
+<%= render 'cities' %>
 
-<div class="row">
-  <div class="well well-sm">Estados</div>
-  <% @managers.where(type_manager: 1).limit(3).each do |manager| %>
-    <%= render 'manager', manager: manager %>
-  <% end %>
-</div>
+<%= render 'states' %>
 
-
-<div class="row">
-  <div class="well well-sm">Pais</div>
-  <% @managers.where(type_manager: 2).limit(3).each do |manager| %>
-    <%= render 'manager', manager: manager %>
-  <% end %>
-</div>
+<%= render 'countries' %>
