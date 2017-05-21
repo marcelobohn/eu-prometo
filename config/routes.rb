@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'contact#index'
   get 'support', to: 'support#index'
 
+  post 'address/cities', to: 'address#cities'
+
   resources :elections
   resources :managers do
     resources :promises do
