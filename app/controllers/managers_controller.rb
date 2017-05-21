@@ -75,7 +75,9 @@ class ManagersController < ApplicationController
 
     def set_types
       @type_manager = [['Presidente(a)', 2], ['Governador(a)', 1], ['Prefeito(a)', 0]]
-      @cities = City.all.collect { |c| [ c.name + ' / ' + c.state.abbrev, c.id ] }
+      @states = State.all.collect { |c| [ c.abbrev, c.id ] }
+      # @cities = City.all.collect { |c| [ c.name, c.id ] }
+      @cities = City.limit(10).collect { |c| [ c.name, c.id ] }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

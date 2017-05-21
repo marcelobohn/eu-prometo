@@ -22,6 +22,13 @@
       <%= form.select :type_manager, @type_manager, {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
     </div>
 
+  </div>
+  <div class="row">
+    <div class="field form-group col-md-3">
+      <%= form.label :state_id %>
+      <%= form.select :state_id, @states, {}, {required: 'true', autofocus: 'true', class: 'form-control', id: 'state_id'}  %>
+    </div>
+
     <div class="field form-group col-md-6">
       <%= form.label :city_id %>
       <%= form.select :city_id, @cities, {}, {required: 'true', autofocus: 'true', class: 'form-control'}  %>
@@ -33,7 +40,6 @@
       <%= form.label :name %>
       <%= form.text_field :name, id: :manager_name, class: 'form-control' %>
     </div>
-
   </div>
 
   <div class="row">

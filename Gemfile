@@ -77,5 +77,5 @@ gem 'omniauth-facebook'
 
 gem 'chartjs-ror'
 
-gem 'kaminari'
+gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 gem 'kaminari-i18n'

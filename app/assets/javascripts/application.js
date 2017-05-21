@@ -22,3 +22,20 @@
 function click() {
   console.log('click')
 }
+
+// $(document).on('page:change', function(event) {
+// $(document).on('load', function(event) {
+  // page_ready();
+// });
+
+$('document').ready(function(){
+  console.log('ready');
+  page_ready();
+});
+
+function page_ready(){
+  $('#state_id').on('change',function(){
+    // get_courses($(this).val());
+    console.log('mudou estado');
+  });
+};

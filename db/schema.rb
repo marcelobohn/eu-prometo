@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170512002047) do
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "abbrev"
+    t.string "ibge"
     t.bigint "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(version: 20170512002047) do
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "abbrev"
+    t.string "ibge"
     t.bigint "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
