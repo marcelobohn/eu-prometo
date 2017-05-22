@@ -1,6 +1,6 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -14,13 +14,17 @@
       <ul class="nav navbar-nav">
         <% if current_user && current_user.admin? %>
           <li class=<%= current_page?(elections_path) ? 'active' : '' %>><a href="/elections">Eleições</a></li>
-        <% end %>
-        <li class=<%= current_page?(managers_path) ? 'active' : '' %>><a href="/managers">Administradores</a></li>
+          <li class=<%= current_page?(managers_path) ? 'active' : '' %>><a href="/managers">Administradores</a></li>
+        <% else %>
+          <li class=<%= current_page?(cities_path) ? 'active' : '' %>><%= link_to 'Prefeituras', cities_path %></li>
+          <li class=<%= current_page?(states_path) ? 'active' : '' %>><%= link_to 'Estados', states_path %></li>
+          <li class=<%= current_page?(countries_path) ? 'active' : '' %>><%= link_to 'Pais', countries_path %></li>
+        <% end %>        
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class=<%= current_page?(about_path) ? 'active' : '' %>><a href="/about">Sobre</a></li>
         <li class=<%= current_page?(support_path) ? 'active' : '' %>><a href="/support">Apoie</a></li>
-        <li class=<%= current_page?(contact_path) ? 'active' : '' %>><a href="/contact">Contato</a></li>
+        <%if (false )%><li class=<%= current_page?(contact_path) ? 'active' : '' %>><a href="/contact">Contato</a></li><% end %>
         <% if user_signed_in? %>
           <li><%= link_to "Sair", destroy_user_session_path, method: :delete, data: { confirm: I18n.t('views.are_you_sure') } %></li>
           <li class=<%= current_page?(edit_user_registration_path) ? 'active' : '' %>><%= link_to current_user.email, edit_user_registration_path %></li>

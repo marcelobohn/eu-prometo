@@ -49,7 +49,7 @@ function get_cities(state_id) {
     $.ajax({
      type: "POST",
      url: "/address/cities",
-     data: { id: state_id },
+     data: { id: state_id, needs_manager: true },
      dataType: 'json',
      success: function(cities) {
        $('#city_id').append('<option value=""></option>');

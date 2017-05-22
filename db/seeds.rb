@@ -11,13 +11,11 @@ require 'csv'
 br = Country.create! name: 'Brasil'
 
 CSV.foreach(::Rails.root.join('db/seed_data/estados.csv'), 'r') do |(cod_ibge, sigla, nome)|
-    # ufs[cod_ibge] = UF.new(codigo_ibge: cod_ibge, sigla: sigla, nome: nome)
     State.create! name: nome, abbrev: sigla, country: br, ibge: cod_ibge
 end    
-rs = State.find_by_abbrev('RS')
+# rs = State.find_by_abbrev('RS')
 
 CSV.foreach(::Rails.root.join('db/seed_data/municipios.csv'), 'r') do |(cod_ibge, nome)|
-    # ufs[cod_ibge[0..1]].municipios.build(codigo_ibge: cod_ibge, nome: nome)
     City.create! name: nome, state: State.find_by_ibge(cod_ibge[0..1]), ibge: cod_ibge
 end
 
@@ -35,10 +33,14 @@ election2014 = Election.create! year: 2014, type_election: 0, description: 'Norm
 election2016 = Election.create! year: 2016, type_election: 1, description: 'Normal'
 
 # presidente
-dilma = Manager.create! name: 'Dilma', election: election2014, country: br, type_manager: 2, user: marcelo
+dilma = Manager.create! name: 'Dilma | Temer', election: election2014, country: br, type_manager: 2, user: marcelo
 
 # governador
-sartori = Manager.create! name: 'José Ivo Sartori', election: election2014, country: br, state: rs, type_manager: 1, user: marcelo
+
+CSV.foreach(::Rails.root.join('db/seed_data/governadores.csv'), 'r') do |(estado, nome)|
+    Manager.create! name: nome, election: election2014, country: br, state: State.find_by_abbrev(estado), type_manager: 1, user: marcelo
+end  
+# sartori = Manager.create! name: 'José Ivo Sartori', election: election2014, country: br, state: rs, type_manager: 1, user: marcelo
 # pezao = Manager.create! name: 'Luiz Fernando Pezão', election: election2014, country: br, state: rj, type_manager: 1, user: marcelo
 # tiao_viana = Manager.create! name: 'Tião Viana', election: election2014, country: br, state: ac, type_manager: 1, user: marcelo
 # renan_filho = Manager.create! name: 'Renan Filho', election: election2014, country: br, state: al, type_manager: 1, user: marcelo

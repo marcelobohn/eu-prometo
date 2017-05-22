@@ -48,9 +48,11 @@ class Manager < ApplicationRecord
   end
 
   def self.search(search)
+    cities = City.where('lower(name) like ?', '%'+search[:text].downcase+'%').pluck(:id) if search[:text]
+    states = State.where('lower(name) like ?', '%'+search[:text].downcase+'%').pluck(:id) if search[:text]
     @managers = Manager.where(type_manager: search[:type_manager] || 0)
-    @managers = @managers.where('lower(name) like ?', '%'+search[:text].downcase+'%') if (search[:text])
-    @managers = @managers.limit(12)    
+    @managers = @managers.where('lower(name) like ? or city_id in (?) or state_id in (?)', '%'+search[:text].downcase+'%', cities, states) if (search[:text])
+    @managers = @managers.limit(30)    
   end
 
 end
