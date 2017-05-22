@@ -7,6 +7,7 @@ class ManagersController < ApplicationController
   # GET /managers.json
   def index
     @managers = Manager.page params[:page]
+    authorize @managers
   end
 
   # GET /managers/1
@@ -78,7 +79,7 @@ class ManagersController < ApplicationController
     def set_types
       @type_manager = [['Presidente(a)', 2], ['Governador(a)', 1], ['Prefeito(a)', 0]]
       @states = State.all.order(:name).collect { |c| [ c.abbrev, c.id ] }
-      @cities = (@manager) ? @manager.state.cities.all.order(:name).collect { |c| [ c.name, c.id ] } : {}
+      @cities = (@manager && @manager.type_manager && @manager.type_manager == 0) ? @manager.state.cities.all.order(:name).collect { |c| [ c.name, c.id ] } : {}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

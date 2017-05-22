@@ -24,10 +24,10 @@
               <span class="<%= promise.get_status[:class] %>" title="<%= promise.user_id ? User.find(promise.user_id).email : '' %>"><%= promise.get_status[:type].upcase %></span>
             </td>
             <td class="text-right">
-              <% if !promise.date_finish %>
+              <% if user_signed_in? && !promise.date_finish %>
                 <%= link_to '<i class="glyphicon glyphicon-ok"></i> Fechar'.html_safe, manager_promise_finish_path(@manager, promise), class: 'btn btn-success btn-sm', :title => "Finish" %>
               <% end %>
-              <% if promise.user_id == current_user.id %>
+              <% if user_signed_in? && promise.user_id == current_user.id %>
                 <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_manager_promise_path(@manager, promise), class: 'btn btn-primary btn-sm', :title => "Edit" %>
               <% end %>
               <%#= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', :title => "Delete" %>

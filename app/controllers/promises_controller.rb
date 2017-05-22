@@ -1,6 +1,6 @@
 class PromisesController < ApplicationController
   before_action :set_promise, only: [:show, :edit, :update, :destroy, :finish]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:show, :index]
 
   # GET /promises
   # GET /promises.json

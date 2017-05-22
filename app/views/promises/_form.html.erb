@@ -1,4 +1,4 @@
-<%= form_with(model: [@manager, promise], local: true) do |form| %>
+<%= form_with(model: [@manager, promise], local: true, id: 'promise_form') do |form| %>
   <% if promise.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(promise.errors.count, "error") %> prohibited this promise from being saved:</h2>

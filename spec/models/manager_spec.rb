@@ -5,7 +5,7 @@ RSpec.describe Manager, type: :model do
     create(:election)
   end
   let(:user) do
-    create(:user)
+    create(:user, :admin)
   end
   let(:country) do
     create(:country)
