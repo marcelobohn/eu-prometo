@@ -31,7 +31,7 @@
 
     <div class="field form-group col-md-6">
       <%= form.label :city_id %>
-      <%= form.select :city_id, @cities, {}, {required: 'true', autofocus: 'true', class: 'form-control'}  %>
+      <%= form.select :city_id, @cities, {}, {required: 'true', autofocus: 'true', class: 'form-control', id: 'city_id'}  %>
     </div>
   </div>
 
@@ -41,7 +41,8 @@
       <%= form.text_field :name, id: :manager_name, class: 'form-control' %>
     </div>
   </div>
-
+  
+  <% if(false)%>
   <div class="row">
     <div class="field form-group col-md-4">
       <%= form.label :start %>
@@ -53,6 +54,7 @@
       <%= form.text_field :end, id: :manager_end, type: 'date', class: 'form-control' %>
     </div>
   </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>

@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-# RSpec.describe AddressController, type: :controller do
 RSpec.describe AddressController, type: :controller do
 
   describe "POST #cities" do
+    # TODO: teste que retorna erro sem informar id do estado
+    
     it "returns http success" do
       post :cities, { :params => { :id => 23 }, :format => :json }
 

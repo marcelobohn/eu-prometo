@@ -28,14 +28,35 @@ function click() {
   // page_ready();
 // });
 
-$('document').ready(function(){
-  console.log('ready');
-  page_ready();
+// $('document').ready(function(){
+//   page_ready();
+// });
+
+// function page_ready(){
+//   $('#state_id').on('change',function(){
+//     get_cities($(this).val());
+//   });
+// };
+
+$(document).on("change", "#state_id", function(event){
+  event.preventDefault();
+  get_cities($(this).val());
 });
 
-function page_ready(){
-  $('#state_id').on('change',function(){
-    // get_courses($(this).val());
-    console.log('mudou estado');
-  });
+function get_cities(state_id) {
+  $('#city_id').empty();
+  if (state_id > 0) {
+    $.ajax({
+     type: "POST",
+     url: "/address/cities",
+     data: { id: state_id },
+     dataType: 'json',
+     success: function(cities) {
+       $('#city_id').append('<option value=""></option>');
+       $(cities).each(function(index,city) {
+         $('#city_id').append('<option value="' + city.id + '">' + city.name + '</option>');
+       });
+     }
+   })
+ };
 };
