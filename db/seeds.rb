@@ -13,7 +13,7 @@ br = Country.create! name: 'Brasil'
 CSV.foreach(::Rails.root.join('db/seed_data/estados.csv'), 'r') do |(cod_ibge, sigla, nome)|
     State.create! name: nome, abbrev: sigla, country: br, ibge: cod_ibge
 end    
-# rs = State.find_by_abbrev('RS')
+rs = State.find_by_abbrev('RS')
 
 CSV.foreach(::Rails.root.join('db/seed_data/municipios.csv'), 'r') do |(cod_ibge, nome)|
     City.create! name: nome, state: State.find_by_ibge(cod_ibge[0..1]), ibge: cod_ibge
