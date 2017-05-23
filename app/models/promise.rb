@@ -2,6 +2,8 @@ class Promise < ApplicationRecord
   belongs_to :manager
   belongs_to :user
 
+  validates :description, presence: true
+
   def get_status
     if date_finish.nil?
       {type: I18n.t(0, scope: [:codes, :promise, :status], default: '?'), class: 'label label-warning cursor-default'}

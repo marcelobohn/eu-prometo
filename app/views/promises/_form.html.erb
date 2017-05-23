@@ -1,4 +1,4 @@
-<%= form_with(model: [@manager, promise], local: true, id: 'promise_form') do |form| %>
+<%= form_with(model: [@manager, promise], local: true, id: 'promise_form', validate: true) do |form| %>
   <% if promise.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(promise.errors.count, "error") %> prohibited this promise from being saved:</h2>
@@ -18,7 +18,7 @@
       <% if @finishing %>
         <span style="display:block"><%= promise.description %></span>
       <% else %>
-        <%= form.text_area :description, id: :promise_description, class: 'form-control' %>
+        <%= form.text_area :description, id: :promise_description, class: 'form-control', required: 'true' %>
       <% end %>
     </div>
   </div>
@@ -33,7 +33,7 @@
     <div class="row">
       <div class="field form-group col-md-12">
         <%= form.label :description_finish %>
-        <%= form.text_area :description_finish, id: :promise_description_finish, class: 'form-control' %>
+        <%= form.text_area :description_finish, id: :promise_description_finish, class: 'form-control', required: 'true' %>
       </div>
     </div>
   <% end %>

@@ -15,11 +15,13 @@ class Manager < ApplicationRecord
   has_many :promise
   # accepts_nested_attributes_for :promise
 
+  validates :name, presence: true
+
   # enum type_manager: [ :president, :governor, :mayor ]
 
   validates_with TypeManagerAddress
 
-  max_paginates_per 10
+  max_paginates_per 30
 
   def type_manager_text
     I18n.t(type_manager, scope: [:codes, :manager, :type], default: '?')
