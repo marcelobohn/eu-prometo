@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   post 'address/cities', to: 'address#cities'
 
-  resources :elections
+  resources :elections, except: [:destroy]
   resources :managers do
     resources :promises do
       get 'finish', shallow: true
