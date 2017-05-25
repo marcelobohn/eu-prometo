@@ -3,7 +3,7 @@
 <span class="title-resource"><%= I18n.t('views.promise.index.title') %></span>
 
 <div class="pull-right">
-  <%= link_to_new new_manager_promise_path, {text: 'views.promise.index.new'} %>
+  <%= link_to_new new_manager_promise_path, {index: 'views.promise.index.new'} %>
 </div>
 
 <% if (@promises.length > 0) %>

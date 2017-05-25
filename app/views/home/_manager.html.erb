@@ -6,7 +6,7 @@
     <div class="panel-body">
       <div class="row row-custom-1">
         <%= manager.type_manager_text %> <br />
-        <div class="pull-left title-2">    
+        <div class="pull-left title-2">
           <%= link_to manager.name, manager %>
         </div>
         <div class="pull-right">
@@ -25,9 +25,9 @@
       <div class="row row-custom-1">
         <%# text_promise = resume[:total] == 0 ? 'Cadastrar a primeira promessa' : 'Exibir promessas' %>
         <% if(resume[:total] == 0) %>
-          <%= link_to 'Cadastrar a primeira promessa', new_manager_promise_path(manager), class: 'btn btn-info btn-sm', :title => "Show Promises" %>
+          <%= link_to_new new_manager_promise_path(manager), {text: 'Cadastrar a primeira promessa'} %>
         <% else %>
-          <%= link_to 'Exibir promessas', manager_promises_path(manager), class: 'btn btn-info btn-sm', :title => "Show Promises" %>
+          <%= link_to_promises manager, {text: 'Exibir promessas'} %>
         <% end %>
       </div>
     </div>

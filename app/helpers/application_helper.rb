@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def link_to_new path, options = nil
-    text = I18n.t(options && options[:text] || 'views.new')
+    text = (options && options[:text]) || I18n.t(options && options[:index] || 'views.new')
     link_to "<i class=\"glyphicon glyphicon-plus\"></i> ".html_safe+text, path, class: 'btn btn-success btn-sm', :title => "Novo"
   end
 
@@ -23,8 +23,9 @@ module ApplicationHelper
   end
 
   # for promises
-  def link_to_promises manager
-    link_to '<i class="glyphicon glyphicon-list-alt"></i>'.html_safe, manager_promises_path(manager), class: 'btn btn-info btn-sm', :title => "Show Promises"
+  def link_to_promises manager, options = nil
+    text = options && ' '+options[:text]
+    link_to '<i class="glyphicon glyphicon-list-alt"></i>'.html_safe+text, manager_promises_path(manager), class: 'btn btn-info btn-sm', :title => "Exibir promessas"
   end
 
   def link_to_promise_finish promise

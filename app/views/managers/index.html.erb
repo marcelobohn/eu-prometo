@@ -1,7 +1,7 @@
 <span class="title-resource"><%#= I18n.t('views.manager.index.title') %> <%= @managers.model_name.human(count: @managers.count) %></span>
 
 <div class="pull-right">
-  <%= link_to_new new_manager_path, {text: 'views.manager.index.new'} %>
+  <%= link_to_new new_manager_path, {index: 'views.manager.index.new'} %>
 </div>
 
 <div class="table-responsive">
