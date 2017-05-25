@@ -28,7 +28,7 @@ class PromisesController < ApplicationController
 
   def finish
     @finishing = true
-    @promise.date_finish = Time.now.strftime("%Y-%m-%d")
+    @promise.date_finish = Time.now.strftime("%Y-%m-%d")  
   end
 
   # POST /promises

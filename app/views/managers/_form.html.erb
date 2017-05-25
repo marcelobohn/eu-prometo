@@ -14,12 +14,12 @@
   <div class="row">
     <div class="field form-group col-md-3">
       <%= form.label :election_id %>
-      <%= form.select :election_id, Election.all.collect { |e| [ e.year, e.id ] }, {}, {required: 'true', autofocus: 'true', class: 'form-control'}  %>
+      <%= form.select :election_id, Election.all.collect { |e| [ e.year, e.id ] }, {}, {required: 'true', autofocus: 'true', class: 'form-control', disabled: true}  %>
     </div>
 
     <div class="field form-group col-md-3">
       <%= form.label :type_manager %>
-      <%= form.select :type_manager, @type_manager, {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+      <%= form.select :type_manager, @type_manager, {}, {required: 'true', autofocus: 'true', class: 'form-control', disabled: true} %>
     </div>
 
   </div>
@@ -36,12 +36,12 @@
   </div>
 
   <div class="row">
-    <div class="field form-group col-md-8">
+    <div class="field form-group col-md-9">
       <%= form.label :name %>
       <%= form.text_field :name, id: :manager_name, class: 'form-control', required: 'true' %>
     </div>
   </div>
-  
+
   <% if(false)%>
   <div class="row">
     <div class="field form-group col-md-4">
@@ -57,6 +57,6 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
+    <%= form.submit class: 'btn btn-success' %>
   </div>
 <% end %>

@@ -15,6 +15,7 @@
   <%= @election.description %>
 </p>
 
-<%= link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe+I18n.t('views.edit'), edit_election_path(@election), class: 'btn btn-primary' %>
-
-<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> '.html_safe+I18n.t('views.back'), elections_path, class: 'btn btn-primary' %>
+<div class="pull-right">
+  <%= link_to_edit edit_election_path(@election) %>
+  <%= link_to_back elections_path %>
+</div>

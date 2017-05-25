@@ -1,4 +1,5 @@
-<%= render 'manager', manager: @manager %>
+<%= render 'manager', manager: @promise.manager %>
+<%#= @promise.manager %>
 
 <span class="title-resource"><%= I18n.t('views.promise.index.new') %></span>
 
@@ -7,5 +8,5 @@
 <hr />
 
 <div class="pull-right">
-  <%= link_to '<i class="glyphicon glyphicon-chevron-left"></i> '.html_safe+I18n.t('views.back'), manager_promises_path, class: 'btn btn-primary' %>
+  <%= link_to_back manager_promises_path %>
 </div>

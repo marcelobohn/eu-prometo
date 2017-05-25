@@ -2,5 +2,7 @@
 
 <%= render 'form', election: @election %>
 
-<%= link_to '<i class="glyphicon glyphicon-file"></i> '.html_safe+I18n.t('views.show'), @election, class: 'btn btn-primary' %> |
-<%= link_to '<i class="glyphicon glyphicon-chevron-left"></i>'.html_safe+I18n.t('views.back'), elections_path, class: 'btn btn-primary' %>
+<div class="pull-right">
+  <%= link_to_show  @election %>
+  <%= link_to_back elections_path %>
+</div>

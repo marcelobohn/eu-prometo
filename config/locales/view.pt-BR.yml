@@ -2,6 +2,7 @@ pt-BR:
   views:
     show: Exibir
     edit: Edit
+    new: Novo
     destroy: Delete
     are_you_sure: Você tem certeza?
     back: Voltar

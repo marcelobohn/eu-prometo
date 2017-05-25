@@ -3,7 +3,7 @@
 <span class="title-resource"><%= I18n.t('views.promise.index.title') %></span>
 
 <div class="pull-right">
-  <%= link_to '<i class="glyphicon glyphicon-plus"></i> '.html_safe+I18n.t('views.promise.index.new'), new_manager_promise_path, class: 'btn btn-primary btn-sm' %>
+  <%= link_to_new new_manager_promise_path, {text: 'views.promise.index.new'} %>
 </div>
 
 <% if (@promises.length > 0) %>
@@ -25,10 +25,10 @@
             </td>
             <td class="text-right">
               <% if user_signed_in? && !promise.date_finish %>
-                <%= link_to '<i class="glyphicon glyphicon-ok"></i> Fechar'.html_safe, manager_promise_finish_path(@manager, promise), class: 'btn btn-success btn-sm', :title => "Finish" %>
+                <%= link_to_promise_finish promise %>
               <% end %>
               <% if user_signed_in? && promise.user_id == current_user.id %>
-                <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_manager_promise_path(@manager, promise), class: 'btn btn-primary btn-sm', :title => "Edit" %>
+                <%= link_to_edit edit_manager_promise_path(@manager, promise), {show_text: false} %>
               <% end %>
               <%#= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', :title => "Delete" %>
             </td>

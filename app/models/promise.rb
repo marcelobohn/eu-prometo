@@ -3,6 +3,8 @@ class Promise < ApplicationRecord
   belongs_to :user
 
   validates :description, presence: true
+  validates :description, length: { maximum: 500 }
+  validates :description_finish, length: { in: 6..500 }
 
   def get_status
     if date_finish.nil?
