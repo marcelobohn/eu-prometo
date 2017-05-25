@@ -83,3 +83,5 @@ gem 'chartjs-ror'
 
 gem 'kaminari'
 gem 'kaminari-i18n'
+
+gem 'newrelic_rpm'
