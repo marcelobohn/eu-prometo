@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def link_to_edit path, options = nil
-    text = get_text options
+    text = get_text options, 'views.edit'
     link_to '<i class="glyphicon glyphicon-pencil"></i> '.html_safe+text, path, class: 'btn btn-primary btn-sm'
   end
 
@@ -34,6 +34,7 @@ module ApplicationHelper
 
   private
     def get_text options, index = nil
-      (options && options[:show_text] == false) ? '' : (options && options[:text] || I18n.t(index))
+      # (options && options[:show_text] == false) ? '' : (options && options[:text] || I18n.t(index))
+      (options && options[:show_text] == false) ? '' : ((options && options[:text]) || I18n.t(options && options[:index] || index))
     end
 end
