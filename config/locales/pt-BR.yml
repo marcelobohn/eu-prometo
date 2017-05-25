@@ -8,20 +8,20 @@ pt-BR:
       election:
         description: 'Descrição'
         emitido_em: 'Emissão'
-        recebido_em: 'Recepção'  
+        recebido_em: 'Recepção'
   activerecord:
     models:
-      election: 
+      election:
         one: Eleição
         other: Eleições
-      manager: 
+      manager:
         one: Administrador
         other: Administradores
       promise: Promessa
     attributes:
       manager:
-        name: 'Nome'      
-        election: 'Eleição'              
+        name: 'Nome'
+        election: 'Eleição'
   helpers:
     label:
       user:
@@ -30,3 +30,11 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmação de senha
         current_password: Senha atual
+
+
+  time:
+    formats:
+      date_simple: '%d-%m-%Y'
+  date:
+    formats:
+      date_simple: '%d-%m-%Y'

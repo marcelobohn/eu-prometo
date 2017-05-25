@@ -24,9 +24,7 @@
               <span class="<%= promise.get_status[:class] %>" title="<%= promise.user_id ? User.find(promise.user_id).email : '' %>"><%= promise.get_status[:type].upcase %></span>
             </td>
             <td class="text-right">
-              <% if user_signed_in? && !promise.date_finish %>
-                <%= link_to_promise_finish promise %>
-              <% end %>
+              <%= link_to_promise_finish promise %>
               <% if user_signed_in? && promise.user_id == current_user.id %>
                 <%= link_to_edit edit_manager_promise_path(@manager, promise), {show_text: false} %>
               <% end %>

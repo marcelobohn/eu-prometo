@@ -23,7 +23,6 @@
         <%= render 'bar', perc: resume[:finished][:perc] %>
       </div>
       <div class="row row-custom-1">
-        <%# text_promise = resume[:total] == 0 ? 'Cadastrar a primeira promessa' : 'Exibir promessas' %>
         <% if(resume[:total] == 0) %>
           <%= link_to_new new_manager_promise_path(manager), {text: 'Cadastrar a primeira promessa'} %>
         <% else %>

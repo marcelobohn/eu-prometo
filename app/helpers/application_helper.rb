@@ -9,8 +9,8 @@ module ApplicationHelper
   end
 
   def link_to_new path, options = nil
-    text = (options && options[:text]) || I18n.t(options && options[:index] || 'views.new')
-    link_to "<i class=\"glyphicon glyphicon-plus\"></i> ".html_safe+text, path, class: 'btn btn-success btn-sm', :title => "Novo"
+    text = get_text options, 'views.new'
+    link_to '<i class="glyphicon glyphicon-plus"></i> '.html_safe+text, path, class: 'btn btn-success btn-sm', :title => "Novo"
   end
 
   def link_to_edit path, options = nil
@@ -29,12 +29,11 @@ module ApplicationHelper
   end
 
   def link_to_promise_finish promise
-    link_to '<i class="glyphicon glyphicon-ok"></i> Fechar'.html_safe, manager_promise_finish_path(promise.manager, promise), class: 'btn btn-success btn-sm', :title => "Finish"
+    link_to '<i class="glyphicon glyphicon-ok"></i> Fechar'.html_safe, manager_promise_finish_path(promise.manager, promise), class: 'btn btn-success btn-sm', :title => "Finish" if user_signed_in? && promise.date_finish.nil?
   end
 
   private
     def get_text options, index = nil
-      # (options && options[:show_text] == false) ? '' : (options && options[:text] || I18n.t(index))
       (options && options[:show_text] == false) ? '' : ((options && options[:text]) || I18n.t(options && options[:index] || index))
     end
 end
