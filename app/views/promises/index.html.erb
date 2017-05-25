@@ -1,12 +1,9 @@
 <%= render 'manager', manager: @manager %>
 
-<span class="title-resource"><%= I18n.t('views.promise.index.title') %></span>
-
-<div class="pull-right">
-  <%= link_to_new new_manager_promise_path, {index: 'views.promise.index.new'} %>
-</div>
+<span class="title-resource"><%#= I18n.t('views.promise.index.title') %></span>
 
 <% if (@promises.length > 0) %>
+  <span class="title-resource">Promessas não cumpridas</span>
   <div class="table-responsive">
     <table class="table">
       <thead>
@@ -15,18 +12,47 @@
           <th style="width: 200px"></th>
         </tr>
       </thead>
-
       <tbody>
-        <% @promises.each do |promise| %>
+        <% @promises.where(date_finish: nil).each do |promise| %>
           <tr>
             <td>
               <span class="title-1"><%= link_to promise.description, manager_promise_path(@manager, promise), :title => "Show" %></span><br />
-              <span class="<%= promise.get_status[:class] %>" title="<%= promise.user_id ? User.find(promise.user_id).email : '' %>"><%= promise.get_status[:type].upcase %></span>
             </td>
             <td class="text-right">
               <%= link_to_promise_finish promise %>
               <% if user_signed_in? && promise.user_id == current_user.id %>
-                <%= link_to_edit edit_manager_promise_path(@manager, promise), {show_text: false} %>
+                <%#= link_to_edit edit_manager_promise_path(@manager, promise), {show_text: false} %>
+              <% end %>
+              <%#= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', :title => "Delete" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <hr />
+
+  <span class="title-resource">Promessas cumpridas</span>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= I18n.t('views.promise.columns.description') %></th>
+          <th style="width: 200px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @promises.where.not(date_finish: nil).each do |promise| %>
+          <tr>
+            <td>
+              <span class="title-1"><%= link_to promise.description, manager_promise_path(@manager, promise), :title => "Show" %></span><br />
+            </td>
+            <td class="text-right">
+              <%= link_to '<i class="glyphicon glyphicon-remove"></i> Contestar'.html_safe, manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm', :title => "Delete" %>
+              <%= link_to_promise_finish promise %>
+              <% if user_signed_in? && promise.user_id == current_user.id %>
+                <%#= link_to_edit edit_manager_promise_path(@manager, promise), {show_text: false} %>
               <% end %>
               <%#= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', :title => "Delete" %>
             </td>
@@ -40,3 +66,9 @@
     <i>Nenhuma promessa cadastrada para esse administrador, cadastre a primeira!!</i>
   </div>
 <% end %>
+
+<hr />
+
+<div>
+  <%= link_to_new new_manager_promise_path, {text: 'Cadastrar nova promessa'} %>
+</div>

@@ -11,5 +11,5 @@ pt-BR:
         '2': 'Presidente(a)'
     promise:
       status:
-        '0': 'Aberta'
-        '1': 'Fechada'
+        '0': 'Não cumprida'
+        '1': 'Cumprida'
