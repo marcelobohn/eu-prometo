@@ -46,8 +46,15 @@
 <% end %>
 
 <hr />
+<div>
+  <p>Comentários</p>
+  <% @promise.comments.each do |comment| %>
+    <%= comment.description %>
+  <% end %>
+</div>
 
 <div class="pull-right">
+  <%= link_to_promise_contest @promise %>
   <%= link_to_promise_finish @promise %>
   <%= link_to_edit edit_manager_promise_path(@manager, @promise) %>
   <%= link_to_back manager_promises_path %>

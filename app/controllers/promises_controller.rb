@@ -1,5 +1,5 @@
 class PromisesController < ApplicationController
-  before_action :set_promise, only: [:show, :edit, :update, :destroy, :finish]
+  before_action :set_promise, only: [:show, :edit, :update, :destroy, :finish, :contest]
   before_action :authenticate_user!, :except => [:show, :index]
 
   # GET /promises
@@ -28,7 +28,11 @@ class PromisesController < ApplicationController
 
   def finish
     @finishing = true
-    @promise.date_finish = Time.now.strftime("%Y-%m-%d")  
+    @promise.date_finish = Time.now.strftime("%Y-%m-%d")
+  end
+
+  def contest
+    @contesting = true
   end
 
   # POST /promises
@@ -54,6 +58,9 @@ class PromisesController < ApplicationController
     if !promise_params['description_finish'].nil?
       @promise.finish(promise_params['description_finish'], current_user.id)
       redirect_to manager_promises_path(@manager), notice: 'Promise was successfully finished.'
+    elsif !promise_params['description_contest'].nil?
+      @promise.contest(promise_params['description_contest'], current_user.id)
+      redirect_to manager_promises_path(@manager), notice: 'Promise was successfully contested.'
     else
       respond_to do |format|
         if @promise.update(promise_params)
@@ -86,6 +93,7 @@ class PromisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def promise_params
-      params.require(:promise).permit(:manager_id, :description, :date_finish, :description_finish, :user_id, :user_finish)
+      params.require(:promise).permit(:manager_id, :description, :date_finish,
+        :description_finish, :description_contest, :user_id, :user_finish)
     end
 end

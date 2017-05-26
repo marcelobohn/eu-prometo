@@ -1,0 +1,11 @@
+<%= render 'manager', manager: @manager %>
+
+<span class="title-resource"><%= I18n.t('views.promise.index.contest') %></span>
+
+<%= render 'form', promise: @promise %>
+
+<hr />
+
+<div class="pull-right">
+  <%= link_to_back manager_promises_path %>
+</div>

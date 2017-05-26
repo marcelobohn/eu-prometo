@@ -15,7 +15,7 @@
   <div class="row">
     <div class="field form-group col-md-12">
       <%= form.label :description %>
-      <% if @finishing %>
+      <% if @finishing || @contesting %>
         <span style="display:block"><%= promise.description %></span>
       <% else %>
         <%= form.text_area :description, id: :promise_description, class: 'form-control', required: 'true' %>
@@ -34,6 +34,22 @@
       <div class="field form-group col-md-12">
         <%= form.label :description_finish %>
         <%= form.text_area :description_finish, id: :promise_description_finish, class: 'form-control', required: 'true' %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @contesting %>
+    <div class="row">
+      <div class="field form-group col-md-12">
+        <%= form.label :description_finish %>
+        <span style="display:block"><%= promise.description_finish %></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field form-group col-md-12">
+        <%= form.label :description_contest %>
+        <%= form.text_area :description_contest, id: :promise_description_contest, class: 'form-control', required: 'true' %>
       </div>
     </div>
   <% end %>

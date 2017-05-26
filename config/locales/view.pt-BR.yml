@@ -39,6 +39,7 @@ pt-BR:
         edit: Editando promessa
         show: Exibindo promessa
         finish: Finalizando promessa
+        contest: Contestando promessa cumprida
       columns:
         description: Descrição promessa
         date_finish: Data conclusão

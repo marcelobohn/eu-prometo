@@ -13,3 +13,4 @@ pt-BR:
       status:
         '0': 'Não cumprida'
         '1': 'Cumprida'
+        '2': 'Contestada'

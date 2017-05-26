@@ -32,6 +32,11 @@ module ApplicationHelper
     link_to '<i class="glyphicon glyphicon-ok"></i> Fechar'.html_safe, manager_promise_finish_path(promise.manager, promise), class: 'btn btn-success btn-sm', :title => "Finish" if user_signed_in? && promise.date_finish.nil?
   end
 
+  def link_to_promise_contest promise
+    link_to '<i class="glyphicon glyphicon-remove"></i> Contestar'.html_safe, manager_promise_contest_path(promise.manager, promise), class: 'btn btn-danger btn-sm', :title => "Contestar conclusão" if user_signed_in? && !promise.date_finish.nil?
+  end
+
+
   private
     def get_text options, index = nil
       (options && options[:show_text] == false) ? '' : ((options && options[:text]) || I18n.t(options && options[:index] || index))

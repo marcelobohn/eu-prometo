@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :managers, except: [:destroy] do
     resources :promises, except: [:destroy] do
       get 'finish', shallow: true
+      get 'contest', shallow: true
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512002047) do
+ActiveRecord::Schema.define(version: 20170525235852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170512002047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "description"
+    t.bigint "user_id"
+    t.bigint "promise_id"
+    t.integer "type_comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["promise_id"], name: "index_comments_on_promise_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -113,6 +124,8 @@ ActiveRecord::Schema.define(version: 20170512002047) do
   end
 
   add_foreign_key "cities", "states"
+  add_foreign_key "comments", "promises"
+  add_foreign_key "comments", "users"
   add_foreign_key "contacts", "users"
   add_foreign_key "managers", "elections"
   add_foreign_key "managers", "users"
