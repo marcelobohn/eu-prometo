@@ -1,7 +1,9 @@
 module ApplicationHelper
   # for all cruds
   def link_to_back path
-    link_to '<i class="glyphicon glyphicon-chevron-left"></i>'.html_safe+I18n.t('views.back'), path, class: 'btn btn-primary btn-sm', :title => "Voltar"
+    link_to path, class: 'btn btn-primary btn-sm', :title => "Voltar" do
+      '<i class="glyphicon glyphicon-chevron-left"></i>'.html_safe+I18n.t('views.back')
+    end
   end
 
   def link_to_show path
@@ -35,7 +37,6 @@ module ApplicationHelper
   def link_to_promise_contest promise
     link_to '<i class="glyphicon glyphicon-remove"></i> Contestar'.html_safe, manager_promise_contest_path(promise.manager, promise), class: 'btn btn-danger btn-sm', :title => "Contestar conclusão" if user_signed_in? && !promise.date_finish.nil?
   end
-
 
   private
     def get_text options, index = nil
