@@ -54,4 +54,13 @@ RSpec.describe Promise, type: :model do
     end
   end
 
+  context 'favorite' do
+    it "create favorite" do
+      promise = Promise.create! manager:manager, description: 'prometo que ...', user_id: user.id
+      promise.add_favorite user
+      promise.reload
+
+      expect(promise.favorites.count).to eq(1)
+    end
+  end
 end

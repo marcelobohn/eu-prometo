@@ -31,11 +31,33 @@ module ApplicationHelper
   end
 
   def link_to_promise_finish promise
-    link_to '<i class="glyphicon glyphicon-ok"></i> Fechar'.html_safe, manager_promise_finish_path(promise.manager, promise), class: 'btn btn-success btn-sm', :title => "Finish" if user_signed_in? && promise.date_finish.nil?
+    link_to '<i class="glyphicon glyphicon-ok"></i> Finalizar'.html_safe, manager_promise_finish_path(promise.manager, promise), class: 'btn btn-success btn-sm', :title => "Finish" if user_signed_in? && promise.date_finish.nil?
   end
 
   def link_to_promise_contest promise
     link_to '<i class="glyphicon glyphicon-remove"></i> Contestar'.html_safe, manager_promise_contest_path(promise.manager, promise), class: 'btn btn-danger btn-sm', :title => "Contestar conclusão" if user_signed_in? && !promise.date_finish.nil?
+  end
+
+  def link_to_favorite promise
+    link_to favorite_manager_promise_path(manager_id: promise.manager.id, id: promise.id), method: :post, remote: true, title: 'Favorito' do
+      if promise.isFavorite? current_user
+        '<i class="fa fa-bookmark title-2"></i>'.html_safe
+      else
+        '<i class="fa fa-bookmark-o title-2"></i>'.html_safe
+      end
+    end if user_signed_in?
+  end
+
+
+  # for manager
+  def link_to_follow manager
+    link_to follow_manager_path(id: manager.id), method: :post, remote: true, title: 'Seguir' do
+      if manager.following? current_user
+        '<i class="glyphicon glyphicon-star title-2"></i>'.html_safe
+      else
+        '<i class="glyphicon glyphicon-star-empty title-2"></i>'.html_safe
+      end
+    end if user_signed_in?
   end
 
   private

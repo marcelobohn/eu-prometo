@@ -1,6 +1,14 @@
 class PromisesController < ApplicationController
-  before_action :set_promise, only: [:show, :edit, :update, :destroy, :finish, :contest]
+  before_action :set_promise, only: [:show, :edit, :update, :destroy, :finish, :contest, :favorite]
   before_action :authenticate_user!, :except => [:show, :index]
+
+  def favorite
+    f = @promise.add_favorite current_user
+    # render json: { success: f ? true : false, follow: f }
+    # respond_to do |format|
+    #     format.js
+    # end
+  end
 
   # GET /promises
   # GET /promises.json

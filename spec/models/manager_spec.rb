@@ -53,9 +53,21 @@ RSpec.describe Manager, type: :model do
 
       manager_mayor = Manager.search({type_manager: 0, text: 'João'})
       expect(manager_mayor.count).to eq(0)
-      
+
       manager_president = Manager.search({type_manager: 2})
       expect(manager_president.count).to eq(0)
+    end
+  end
+
+  context 'follow' do
+    it "create follow" do
+      manager = Manager.create! election: election, name: 'Maria',
+        country_id: country.id, state_id: state.id, city_id: city.id,
+        type_manager: 0, user: user
+      manager.start_follow user
+      manager.reload
+
+      expect(manager.follows.count).to eq(1)
     end
   end
 end

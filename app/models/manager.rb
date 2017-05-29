@@ -13,6 +13,7 @@ class Manager < ApplicationRecord
   belongs_to :state, optional: true
   belongs_to :city, optional: true
   has_many :promise
+  has_many :follows
   # accepts_nested_attributes_for :promise
 
   validates :name, presence: true
@@ -22,6 +23,15 @@ class Manager < ApplicationRecord
   validates_with TypeManagerAddress
 
   max_paginates_per 30
+
+  def start_follow user
+    m = self.follows.find_by_user_id user.id
+    !m ? (self.follows.create user: user) : m
+  end
+
+  def following? user
+    (self.follows.find_by_user_id user.id) ? true : false
+  end
 
   def type_manager_text
     I18n.t(type_manager, scope: [:codes, :manager, :type], default: '?')

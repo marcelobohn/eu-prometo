@@ -1,11 +1,18 @@
 <% resume = manager.get_resume_promises %>
-<div class="row row-custom-1">        
-  <p><%= manager.type_manager_text %> <b><%= manager.name %></b></p>
+<div class="row row-custom-1" id="manager_<%= manager.id%>">
+  <div>
+    <span class="title-2"><%= manager.type_manager_text %> <b><%= manager.name %></b></span>
+    <div class="pull-right">
+      <%#= link_to_follow manager %>
+      <span id="link-follow"><%= render 'follow_link', manager: manager %></span>
+    </div>
+  </div>
   <span style="font-size: 14px"><%= manager.get_local %> | Eleição: <%= manager.election.year %></span><br />
   <span style="font-size: 14px">
-    Total de promessas: <%= resume[:total] %> | 
-    Cumpridas: <%= resume[:finished][:count] %> |
-    Pendetes: <%= resume[:opened][:count] %>
+    Total de promessas: <b><%= resume[:total] %></b> |
+    <i class="fa fa-square-o" aria-hidden="true"></i> Não cumpridas: <b><%= resume[:opened][:count] %></b> |
+    <i class="fa fa-check-square-o" aria-hidden="true"></i> Cumpridas: <b><%= resume[:finished][:count] %></b>
+    <br />
   </span>
 </div>
 <div class="row row-custom-1">

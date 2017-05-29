@@ -2,10 +2,20 @@ class Promise < ApplicationRecord
   belongs_to :manager
   belongs_to :user
   has_many :comments
+  has_many :favorites
 
   validates :description, presence: true
   validates :description, length: { maximum: 500 }
   validates :description_finish, length: { maximum: 500 }
+
+  def isFavorite? user
+    (self.favorites.find_by_user_id user.id) ? true : false
+  end
+
+  def add_favorite user
+    f = self.favorites.find_by_user_id user.id
+    !f ? (self.favorites.create user: user) : f
+  end
 
   def get_status
     if date_finish.nil?

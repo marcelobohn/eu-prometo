@@ -1,7 +1,12 @@
 class ManagersController < ApplicationController
-  before_action :set_manager, only: [:show, :edit, :update, :destroy]
+  before_action :set_manager, only: [:show, :edit, :update, :destroy, :follow]
   before_action :set_types, only: [:show, :new, :create, :edit]
   before_action :authenticate_user!
+
+  def follow
+    f = @manager.start_follow current_user
+    # render json: { success: f ? true : false, follow: f }  
+  end
 
   # GET /managers
   # GET /managers.json

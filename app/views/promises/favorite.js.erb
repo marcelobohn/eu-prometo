@@ -1,0 +1,1 @@
+$("#promise_<%= @promise.id %>").find('#link-favorite').html("<%= escape_javascript(render partial: 'favorite_link', locals: { promise: @promise } ) %>")

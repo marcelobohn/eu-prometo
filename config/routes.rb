@@ -14,9 +14,12 @@ Rails.application.routes.draw do
 
   resources :elections, except: [:destroy]
   resources :managers, except: [:destroy] do
+    post 'follow', on: :member
+    # post 'follow', as: :follow, action: :follow
     resources :promises, except: [:destroy] do
       get 'finish', shallow: true
       get 'contest', shallow: true
+      post 'favorite', on: :member
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

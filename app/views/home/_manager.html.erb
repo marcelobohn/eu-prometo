@@ -1,4 +1,4 @@
-<div class="field form-group col-md-4">
+<div class="field form-group col-md-4" id="manager_<%= manager.id%>">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <%= manager.get_local %> | <%= manager.election.year %>
@@ -8,17 +8,18 @@
         <%= manager.type_manager_text %> <br />
         <div class="pull-left title-2">
           <%= link_to manager.name, manager %>
-          <%= link_to manager.name, manager, remote: true %>
         </div>
         <div class="pull-right">
-          <i class="glyphicon glyphicon-star-empty title-1"></i>
+          <%#= link_to_follow manager %>
+          <span id="link-follow"><%= render 'follow_link', manager: manager %></span>
         </div>
       </div>
       <div class="row row-custom-1">
         <% resume = manager.get_resume_promises %>
         <span class="title-2">Total de promessas: <%= resume[:total] %></span><br />
-        Cumpridas: <%= resume[:finished][:count] %> |
-        Pendetes: <%= resume[:opened][:count] %><br />
+        <i class="fa fa-square-o" aria-hidden="true"></i> Não cumpridas: <%= resume[:opened][:count] %> |
+        <i class="fa fa-check-square-o" aria-hidden="true"></i> Cumpridas: <%= resume[:finished][:count] %>
+        <br />
       </div>
       <div class="row row-custom-1 height-26">
         <%= render 'bar', perc: resume[:finished][:perc] %>

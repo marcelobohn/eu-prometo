@@ -3,7 +3,7 @@
 <span class="title-resource"><%#= I18n.t('views.promise.index.title') %></span>
 
 <% if (@promises.length > 0) %>
-  <span class="title-resource">Promessas não cumpridas</span>
+  <span class="title-resource"><i class="fa fa-square-o" aria-hidden="true"></i> Promessas não cumpridas</span>
   <div class="table-responsive">
     <table class="table">
       <thead>
@@ -14,12 +14,15 @@
       </thead>
       <tbody>
         <% @promises.where(date_finish: nil).each do |promise| %>
-          <tr>
+          <tr id="promise_<%= promise.id %>">
             <td>
               <span class="title-1"><%= link_to promise.description, manager_promise_path(@manager, promise), :title => "Show" %></span><br />
               <span class="<%= promise.get_status[:class] %>" title="<%= promise.user_id ? User.find(promise.user_id).email : '' %>"><%= promise.get_status[:type].upcase %></span>
             </td>
             <td class="text-right">
+              <i class="fa fa-tag" aria-hidden="true"></i>
+              <%#= link_to_favorite promise %>
+              <span id="link-favorite"><%= render 'favorite_link', promise: promise %></span>
               <%= link_to_promise_finish promise %>
               <% if user_signed_in? && promise.user_id == current_user.id %>
                 <%#= link_to_edit edit_manager_promise_path(@manager, promise), {show_text: false} %>
@@ -34,7 +37,7 @@
 
   <hr />
 
-  <span class="title-resource">Promessas cumpridas</span>
+  <span class="title-resource"><i class="fa fa-check-square-o" aria-hidden="true"></i> Promessas cumpridas</span>
   <div class="table-responsive">
     <table class="table">
       <thead>

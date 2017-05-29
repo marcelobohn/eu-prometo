@@ -1,0 +1,2 @@
+// $("#manager_<%= @manager.id %>").find('i').removeClass('glyphicon-star-empty').addClass('glyphicon-star');
+$("#manager_<%= @manager.id %>").find('#link-follow').html("<%= escape_javascript(render partial: 'follow_link', locals: { manager: @manager } ) %>")
