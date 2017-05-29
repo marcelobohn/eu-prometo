@@ -8,7 +8,7 @@
       <% end %>
     </div>
   </div>
-  <% @managers.where(type_manager: 0).limit(3).each do |manager| %>
+  <% @managers.where(type_manager: 0).limit(2).each do |manager| %>
     <%= render 'manager', manager: manager %>
   <% end %>
 </div>

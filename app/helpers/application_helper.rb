@@ -39,25 +39,34 @@ module ApplicationHelper
   end
 
   def link_to_favorite promise
-    link_to favorite_manager_promise_path(manager_id: promise.manager.id, id: promise.id), method: :post, remote: true, title: 'Favorito' do
-      if promise.isFavorite? current_user
-        '<i class="fa fa-bookmark title-2"></i>'.html_safe
-      else
-        '<i class="fa fa-bookmark-o title-2"></i>'.html_safe
+    if user_signed_in?
+      # <i class="fa fa-tag" aria-hidden="true"></i>
+      isFavorite = promise.isFavorite? current_user
+      title = isFavorite ? 'Promessa adicionada as favoritas' : 'Adicionar promessa as favoritas'
+      link_to favorite_manager_promise_path(manager_id: promise.manager.id, id: promise.id), method: :post, remote: true, title: title, class: 'btn btn-default btn-sm' do
+        if isFavorite
+          '<i class="fa fa-bookmark title-2"></i>'.html_safe
+        else
+          '<i class="fa fa-bookmark-o title-2"></i>'.html_safe
+        end
       end
-    end if user_signed_in?
+    end
   end
 
 
   # for manager
   def link_to_follow manager
-    link_to follow_manager_path(id: manager.id), method: :post, remote: true, title: 'Seguir' do
-      if manager.following? current_user
-        '<i class="glyphicon glyphicon-star title-2"></i>'.html_safe
-      else
-        '<i class="glyphicon glyphicon-star-empty title-2"></i>'.html_safe
+    if user_signed_in?
+      following = manager.following? current_user
+      title = following ? 'Voce está seguindo ' + manager.name : 'Começar a seguir'
+      link_to follow_manager_path(id: manager.id), method: :post, remote: true, title: title, class: 'btn btn-default btn-sm' do
+        if following
+          '<i class="glyphicon glyphicon-star"></i> Seguindo'.html_safe
+        else
+          '<i class="glyphicon glyphicon-star-empty"></i> Seguir'.html_safe
+        end
       end
-    end if user_signed_in?
+    end
   end
 
   private

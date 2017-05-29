@@ -1,61 +1,64 @@
 <%= render 'manager', manager: @manager %>
 
-<span class="title-resource"><%= I18n.t('views.promise.index.show') %></span>
+<div id="promise_<%= @promise.id %>">
+  <span id="link-favorite"><%= render 'favorite_link', promise: @promise %></span>
+  <span class="title-resource"><%= I18n.t('views.promise.index.show') %></span>
 
-<div class="row">
-  <div class="field form-group col-md-2">
-    <label>Situação</label><br />
-    <span class="<%= @promise.get_status[:class] %>" title="<%= @promise.user_id ? User.find(@promise.user_id).email : '' %>"><%= @promise.get_status[:type].upcase %></span>
-  </div>
-  <div class="field form-group col-md-2">
-    <label><%= I18n.t('views.promise.columns.created_at') %></label>
-    <span style="display: block"><%= l @promise.created_at, format: :date_simple %></span>
-  </div>
-  <div class="field form-group col-md-8">
-    <label><%= I18n.t('views.promise.columns.user_id') %></label>
-    <span style="display: block"><%= @promise.user_id ? User.find(@promise.user_id).email : '' %></span>
-  </div>
-</div>
-
-<div class="row">
-  <div class="field form-group col-md-12">
-    <label><%= I18n.t('views.promise.columns.description') %></label>
-    <span style="display: block"><%= @promise.description %></span>
-  </div>
-</div>
-
-<% if (@promise.date_finish) %>
-  <hr />
   <div class="row">
-    <div class="field form-group col-md-3">
-      <label><%= I18n.t('views.promise.columns.date_finish') %></label>
-      <span style="display: block"><%= l @promise.date_finish, format: :date_simple %></span>
+    <div class="field form-group col-md-2">
+      <label>Situação</label><br />
+      <span class="<%= @promise.get_status[:class] %>" title="<%= @promise.user_id ? User.find(@promise.user_id).email : '' %>"><%= @promise.get_status[:type].upcase %></span>
     </div>
-    <div class="field form-group col-md-9">
-      <label><%= I18n.t('views.promise.columns.user_finish') %></label>
-      <span style="display: block"><%= @promise.user_finish_email %></span>
+    <div class="field form-group col-md-2">
+      <label><%= I18n.t('views.promise.columns.created_at') %></label>
+      <span style="display: block"><%= l @promise.created_at, format: :date_simple %></span>
+    </div>
+    <div class="field form-group col-md-8">
+      <label><%= I18n.t('views.promise.columns.user_id') %></label>
+      <span style="display: block"><%= @promise.user_id ? User.find(@promise.user_id).email : '' %></span>
     </div>
   </div>
 
   <div class="row">
     <div class="field form-group col-md-12">
-      <label><%= I18n.t('views.promise.columns.description_finish') %></label>
-      <span style="display: block"><%= @promise.description_finish %></span>
+      <label><%= I18n.t('views.promise.columns.description') %></label>
+      <span style="display: block"><%= @promise.description %></span>
     </div>
   </div>
-<% end %>
 
-<hr />
-<div>
-  <p>Comentários</p>
-  <% @promise.comments.each do |comment| %>
-    <%= comment.description %>
+  <% if (@promise.date_finish) %>
+    <hr />
+    <div class="row">
+      <div class="field form-group col-md-3">
+        <label><%= I18n.t('views.promise.columns.date_finish') %></label>
+        <span style="display: block"><%= l @promise.date_finish, format: :date_simple %></span>
+      </div>
+      <div class="field form-group col-md-9">
+        <label><%= I18n.t('views.promise.columns.user_finish') %></label>
+        <span style="display: block"><%= @promise.user_finish_email %></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field form-group col-md-12">
+        <label><%= I18n.t('views.promise.columns.description_finish') %></label>
+        <span style="display: block"><%= @promise.description_finish %></span>
+      </div>
+    </div>
   <% end %>
-</div>
 
-<div class="pull-right">
-  <%= link_to_promise_contest @promise %>
-  <%= link_to_promise_finish @promise %>
-  <%= link_to_edit edit_manager_promise_path(@manager, @promise) %>
-  <%= link_to_back manager_promises_path %>
+  <hr />
+  <div>
+    <p>Comentários</p>
+    <% @promise.comments.each do |comment| %>
+      <%= comment.description %>
+    <% end %>
+  </div>
+
+  <div class="pull-right">
+    <%= link_to_promise_contest @promise %>
+    <%= link_to_promise_finish @promise %>
+    <%= link_to_edit edit_manager_promise_path(@manager, @promise) %>
+    <%= link_to_back manager_promises_path %>
+  </div>
 </div>

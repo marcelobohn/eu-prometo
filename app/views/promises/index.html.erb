@@ -20,8 +20,6 @@
               <span class="<%= promise.get_status[:class] %>" title="<%= promise.user_id ? User.find(promise.user_id).email : '' %>"><%= promise.get_status[:type].upcase %></span>
             </td>
             <td class="text-right">
-              <i class="fa fa-tag" aria-hidden="true"></i>
-              <%#= link_to_favorite promise %>
               <span id="link-favorite"><%= render 'favorite_link', promise: promise %></span>
               <%= link_to_promise_finish promise %>
               <% if user_signed_in? && promise.user_id == current_user.id %>
@@ -48,12 +46,13 @@
       </thead>
       <tbody>
         <% @promises.where.not(date_finish: nil).each do |promise| %>
-          <tr>
+          <tr id="promise_<%= promise.id %>">
             <td>
               <span class="title-1"><%= link_to promise.description, manager_promise_path(@manager, promise), :title => "Show" %></span><br />
             </td>
             <td class="text-right">
               <%#= link_to '<i class="glyphicon glyphicon-remove"></i> Contestar'.html_safe, manager_promise_path(@manager, promise), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm', :title => "Delete" %>
+              <span id="link-favorite"><%= render 'favorite_link', promise: promise %></span>
               <%= link_to_promise_contest promise %>
               <% if user_signed_in? && promise.user_id == current_user.id %>
                 <%#= link_to_edit edit_manager_promise_path(@manager, promise), {show_text: false} %>

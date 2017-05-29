@@ -9,9 +9,10 @@
   </div>
   <span style="font-size: 14px"><%= manager.get_local %> | Eleição: <%= manager.election.year %></span><br />
   <span style="font-size: 14px">
-    Total de promessas: <b><%= resume[:total] %></b> |
     <i class="fa fa-square-o" aria-hidden="true"></i> Não cumpridas: <b><%= resume[:opened][:count] %></b> |
     <i class="fa fa-check-square-o" aria-hidden="true"></i> Cumpridas: <b><%= resume[:finished][:count] %></b>
+    <br />
+    Total de promessas: <b><%= resume[:total] %></b>
     <br />
   </span>
 </div>

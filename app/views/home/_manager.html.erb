@@ -1,4 +1,4 @@
-<div class="field form-group col-md-4" id="manager_<%= manager.id%>">
+<div class="field form-group col-md-6" id="manager_<%= manager.id%>">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <%= manager.get_local %> | <%= manager.election.year %>
@@ -16,9 +16,11 @@
       </div>
       <div class="row row-custom-1">
         <% resume = manager.get_resume_promises %>
-        <span class="title-2">Total de promessas: <%= resume[:total] %></span><br />
+
         <i class="fa fa-square-o" aria-hidden="true"></i> Não cumpridas: <%= resume[:opened][:count] %> |
         <i class="fa fa-check-square-o" aria-hidden="true"></i> Cumpridas: <%= resume[:finished][:count] %>
+        <br />
+          <span class="title-2">Total de promessas: <%= resume[:total] %></span>
         <br />
       </div>
       <div class="row row-custom-1 height-26">
