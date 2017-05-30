@@ -23,8 +23,8 @@ development:
   encoding: utf8
   database: euprometo_dev
   pool: 5
-  username: marcelo
-  password: '123456'
+  username: rails
+  password:
   host: localhost
 
 
