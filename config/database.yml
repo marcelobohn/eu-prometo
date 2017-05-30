@@ -23,10 +23,10 @@ development:
   encoding: utf8
   database: euprometo_dev
   pool: 5
-  username: postgres
+  username: marcelo
   password: '123456'
   host: localhost
-  
+
 
 # development:
 #   <<: *default
@@ -56,3 +56,6 @@ production:
   encoding: utf8
   database: euprometo_prd
   pool: 5
+  username: postgres
+  password: 'd3g9u4t9i2b9'
+  host: localhost
