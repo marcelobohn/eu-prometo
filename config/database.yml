@@ -24,7 +24,7 @@ development:
   database: euprometo_dev
   pool: 5
   username: rails
-  password:
+  password: '5953863d2a357202c40582b0d90b617a'
   host: localhost
 
 
