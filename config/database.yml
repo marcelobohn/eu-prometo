@@ -54,7 +54,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  database: euprometo_prd
+  database: euprometo_production
   pool: 5
   username: rails
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
