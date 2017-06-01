@@ -1,5 +1,5 @@
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -19,7 +19,7 @@
           <li class=<%= current_page?(cities_path) ? 'active' : '' %>><%= link_to 'Prefeituras', cities_path %></li>
           <li class=<%= current_page?(states_path) ? 'active' : '' %>><%= link_to 'Estados', states_path %></li>
           <li class=<%= current_page?(countries_path) ? 'active' : '' %>><%= link_to 'Pais', countries_path %></li>
-        <% end %>        
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class=<%= current_page?(about_path) ? 'active' : '' %>><a href="/about">Sobre</a></li>
