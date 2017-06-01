@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  layout "home"
+
   def index
     @managers = Manager.limit(19)
   end

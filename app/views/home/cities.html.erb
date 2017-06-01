@@ -1,16 +1,17 @@
+<div class="container">
 <div class="row">
   <div class="well well-sm">
     <%= link_to 'Prefeituras', cities_path %>
     <% if (@managers.count > 0) %>
       | <%= link_to 'Cadastrar prefeito'.html_safe, new_manager_path %>
     <% end %>
-    <div class="pull-right">      
+    <div class="pull-right">
       <%= form_tag cities_path, :method => 'get' do %>
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "Pesquisa", :name => nil %>
       <% end %>
     </div>
-  </div>    
+  </div>
   <% @managers.each do |manager| %>
     <%= render 'manager', manager: manager %>
   <% end %>
@@ -20,4 +21,5 @@
     </div><br /><br />
     <%= link_to '<i class="glyphicon glyphicon-plus"></i> Cadastrar prefeito'.html_safe, new_manager_path, class: 'btn btn-primary' %>
   <% end %>
+</div>
 </div>

@@ -1,4 +1,6 @@
-<%= render 'manager', manager: @manager %>
+<div class="jumbotron">
+  <%= render 'manager', manager: @manager %>
+</div>
 
 <span class="title-resource"><%#= I18n.t('views.promise.index.title') %></span>
 
@@ -71,7 +73,3 @@
 <% end %>
 
 <hr />
-
-<div>
-  <%= link_to_new new_manager_promise_path, {text: 'Cadastrar nova promessa'} %>
-</div>

@@ -1,0 +1,31 @@
+<hr class="featurette-divider" />
+<footer class="footer footer-custom">
+  <div class="container">
+    <p class="text">Apoie esse site</p>
+    <div>
+      <%= link_to image_tag("apoiase-link.png"), 'https://apoia.se/euprometoavoce'  %>
+    </div>
+    <p class="text">Redes sociais</p>
+    <div>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9&appId=722155047965511";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+
+      <a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com/EuPrometoavoce" target="_blank">
+         <span class="fa fa-twitter"></span>
+      </a>
+
+      <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/EuPrometoavoce" target="_blank">
+         <span class="fa fa-facebook"></span>
+      </a>
+
+      <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    </div>
+  </div>
+</footer>
