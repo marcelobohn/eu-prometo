@@ -22,6 +22,11 @@ pt-BR:
       manager:
         name: 'Nome'
         election: 'Eleição'
+      promise:
+        description: 'Descrição da promessa'
+        date_finish: 'Data conclusão'
+        description_finish: 'Descrição da conclusão'
+        description_contest: 'Descrição da contestação'
   helpers:
     label:
       user:

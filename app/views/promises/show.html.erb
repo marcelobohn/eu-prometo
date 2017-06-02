@@ -48,12 +48,14 @@
   <% end %>
 
   <hr />
-  <div>
-    <p>Comentários</p>
-    <% @promise.comments.each do |comment| %>
-      <%= comment.description %>
-    <% end %>
-  </div>
+  <% if @promise.comments.count > 0  %>
+    <div>
+      <p>Comentários</p>
+      <% @promise.comments.each do |comment| %>
+        <%= comment.description %>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="pull-right">
     <%= link_to_promise_contest @promise %>

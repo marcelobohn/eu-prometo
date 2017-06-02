@@ -1,24 +1,26 @@
-<% resume = manager.get_resume_promises %>
-<div class="row row-custom-1" id="manager_<%= manager.id%>">
-  <div>
-    <span class="title-2"><%= manager.type_manager_text %> <b><%= manager.name %></b></span>
-    <div class="pull-right">
-      <%#= link_to_follow manager %>
-      <span id="link-follow"><%= render 'follow_link', manager: manager %></span>
+<div class="jumbotron">
+  <% resume = manager.get_resume_promises %>
+  <div class="row row-custom-1" id="manager_<%= manager.id%>">
+    <div>
+      <span class="title-2"><%= manager.type_manager_text %> <b><%= manager.name %></b></span>
+      <div class="pull-right">
+        <%#= link_to_follow manager %>
+        <span id="link-follow"><%= render 'follow_link', manager: manager %></span>
+      </div>
     </div>
+    <span style="font-size: 14px"><%= manager.get_local %> | <%= manager.election.description %></span><br />
+    <span style="font-size: 14px">
+      <i class="fa fa-square-o" aria-hidden="true"></i> Não cumpridas: <b><%= resume[:opened][:count] %></b> |
+      <i class="fa fa-check-square-o" aria-hidden="true"></i> Cumpridas: <b><%= resume[:finished][:count] %></b>
+      <br />
+      Total de promessas: <b><%= resume[:total] %></b>
+      <br />
+    </span>
   </div>
-  <span style="font-size: 14px"><%= manager.get_local %> | Eleição: <%= manager.election.year %></span><br />
-  <span style="font-size: 14px">
-    <i class="fa fa-square-o" aria-hidden="true"></i> Não cumpridas: <b><%= resume[:opened][:count] %></b> |
-    <i class="fa fa-check-square-o" aria-hidden="true"></i> Cumpridas: <b><%= resume[:finished][:count] %></b>
-    <br />
-    Total de promessas: <b><%= resume[:total] %></b>
-    <br />
-  </span>
-</div>
-<div class="row row-custom-1">
-  <%= render 'home/bar', perc: resume[:finished][:perc] %>
-</div>
-<div>
-  <%= link_to_new new_manager_promise_path, {text: 'Cadastrar nova promessa'} %>
+  <div class="row row-custom-1">
+    <%= render 'home/bar', perc: resume[:finished][:perc] %>
+  </div>
+  <div>
+    <%= link_to_new new_manager_promise_path, {text: 'Cadastrar nova promessa'} if !current_page?(action: 'new') %>
+  </div>
 </div>
