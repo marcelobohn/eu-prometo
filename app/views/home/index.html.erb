@@ -8,6 +8,27 @@
 </div>
 
 <div class="container">
-<%#= render 'charts' %>
-<%= render 'panel-manager' %>
+  <div class="row">
+    <div class="col-sm-3 col-md-3 hidden-xs-down bg-faded sidebar">
+      <div class="well well-sm">
+        <%= link_to 'Prefeituras', cities_path %>
+        <%= form_tag cities_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Pesquisa", :name => nil %>
+        <% end %>
+      </div>
+      <div class="well well-sm">
+        <%= link_to 'Estados', states_path %>
+        <%= form_tag states_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Pesquisa", :name => nil %>
+        <% end %>
+      </div>
+      <div class="well well-sm"><%= link_to 'Pais', countries_path %></div>
+    </div>
+    <div class="col-sm-9 col-md-9 hidden-xs-down bg-faded sidebar">
+        <%#= render 'charts' %>
+        <%= render 'panel-manager' %>
+    </div>
+  </div>
 </div>

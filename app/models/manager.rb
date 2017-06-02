@@ -25,12 +25,12 @@ class Manager < ApplicationRecord
   max_paginates_per 30
 
   def start_follow user
-    m = self.follows.find_by_user_id user.id
-    !m ? (self.follows.create user: user) : m
+    m = self.follows.where(user_id: user_id).where(unfollow: nil).last
+    !m ? (self.follows.create user: user) : (m.update unfollow: Time.now)
   end
 
   def following? user
-    (self.follows.find_by_user_id user.id) ? true : false
+    (self.follows.where(user_id: user_id).where(unfollow: nil).last) ? true : false
   end
 
   def type_manager_text

@@ -9,12 +9,12 @@ class Promise < ApplicationRecord
   validates :description_finish, length: { maximum: 500 }
 
   def isFavorite? user
-    (self.favorites.find_by_user_id user.id) ? true : false
+    (self.favorites.where(user_id: user_id).where(remove: nil).last) ? true : false
   end
 
   def add_favorite user
-    f = self.favorites.find_by_user_id user.id
-    !f ? (self.favorites.create user: user) : f
+    f = self.favorites.where(user_id: user_id).where(remove: nil).last
+    !f ? (self.favorites.create user: user) : (f.update remove: Time.now)
   end
 
   def get_status

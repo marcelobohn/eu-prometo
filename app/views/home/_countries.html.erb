@@ -1,5 +1,4 @@
 <div class="row">
-  <div class="well well-sm"><%= link_to 'Pais', countries_path %></div>
   <% @managers.where(type_manager: 2).limit(2).each do |manager| %>
     <%= render 'manager', manager: manager %>
   <% end %>
