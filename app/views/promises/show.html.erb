@@ -1,8 +1,10 @@
 <%= render 'manager', manager: @manager %>
 
 <div id="promise_<%= @promise.id %>">
-  <span id="link-favorite"><%= render 'favorite_link', promise: @promise %></span>
-  <span class="title-resource"><%= I18n.t('views.promise.index.show') %></span>
+    <span class="title-resource">
+      <%= I18n.t('views.promise.index.show') %>
+      <span id="link-favorite" ><%= render 'favorite_link', promise: @promise %></span>
+    </span>
 
   <div class="row">
     <div class="field form-group col-md-2">
@@ -47,16 +49,20 @@
     </div>
   <% end %>
 
-  <hr />
   <% if @promise.comments.count > 0  %>
+    <hr />
     <div>
-      <p>Comentários</p>
+      <p><b>Comentários</b></p>
       <% @promise.comments.each do |comment| %>
-        <%= comment.description %>
+        <div>
+          <%= l comment.created_at, format: :date_simple %> -
+          <%= comment.description %>
+        </div>
       <% end %>
     </div>
   <% end %>
 
+  <hr />
   <div class="pull-right">
     <%= link_to_promise_contest @promise %>
     <%= link_to_promise_finish @promise %>

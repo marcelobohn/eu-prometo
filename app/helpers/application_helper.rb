@@ -42,7 +42,7 @@ module ApplicationHelper
     if user_signed_in?
       # <i class="fa fa-tag" aria-hidden="true"></i>
       isFavorite = promise.isFavorite? current_user
-      title = isFavorite ? 'Promessa adicionada as favoritas' : 'Adicionar promessa as favoritas'
+      title = isFavorite ? 'Promessa adicionada as favoritas' : 'Adicionar as promessas favoritas'
       link_to favorite_manager_promise_path(manager_id: promise.manager.id, id: promise.id), method: :post, remote: true, title: title, class: 'btn btn-default btn-sm' do
         if isFavorite
           '<i class="fa fa-bookmark title-2"></i>'.html_safe

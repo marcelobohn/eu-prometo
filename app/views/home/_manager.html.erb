@@ -16,17 +16,17 @@
       </div>
       <div class="row row-custom-1">
         <% resume = manager.get_resume_promises %>
-
+        <span class="title-2">Total de promessas: <%= resume[:total] %></span>
+        <div class="pull-right">
         <i class="fa fa-square-o" aria-hidden="true"></i> Não cumpridas: <%= resume[:opened][:count] %> |
         <i class="fa fa-check-square-o" aria-hidden="true"></i> Cumpridas: <%= resume[:finished][:count] %>
-        <br />
-          <span class="title-2">Total de promessas: <%= resume[:total] %></span>
+        </div>
         <br />
       </div>
       <div class="row row-custom-1 height-26">
         <%= render 'bar', perc: resume[:finished][:perc] %>
       </div>
-      <div class="row row-custom-1">
+      <div class="row row-custom-1 pull-right">
         <% if(resume[:total] == 0) %>
           <%= link_to_new new_manager_promise_path(manager), {text: 'Cadastrar a primeira promessa'} %>
         <% else %>

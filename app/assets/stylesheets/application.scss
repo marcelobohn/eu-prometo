@@ -45,11 +45,20 @@
 }
 
 .footer-custom {
-    background: #262b30;
-    color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  background: #262b30;
+  color: white;
+  padding-top: 20px;
+  margin-top: 20px;
+  padding-bottom: 20px;
 }
 .footer-custom.text {
-    color: white;
+  color: white;
+}
+
+hr {
+  width: 100%; color: gray; height: 1px; background-color:gray;
+}
+
+.favorite {
+  margin-top: -10px;
 }

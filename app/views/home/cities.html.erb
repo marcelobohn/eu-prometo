@@ -1,25 +1,25 @@
 <div class="container">
-<div class="row">
-  <div class="well well-sm">
-    <%= link_to 'Prefeituras', cities_path %>
-    <% if (@managers.count > 0) %>
-      | <%= link_to 'Cadastrar prefeito'.html_safe, new_manager_path %>
-    <% end %>
-    <div class="pull-right">
-      <%= form_tag cities_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Pesquisa", :name => nil %>
+  <div class="row">
+    <div class="well well-sm">
+      <span class="title-resource"><%= link_to 'Prefeituras', cities_path %></span>
+      <% if (@managers.count > 0) %>
+        <br /> <%= link_to '<i class="glyphicon glyphicon-plus"></i> Cadastrar prefeito'.html_safe, new_manager_path, class: 'btn btn-primary btn-sm' %>
       <% end %>
+      <div class="pull-right">
+        <%= form_tag cities_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Pesquisa", :name => nil, class: 'btn btn-primary btn-sm' %>
+        <% end %>
+      </div>
     </div>
+    <% @managers.each do |manager| %>
+      <%= render 'manager', manager: manager %>
+    <% end %>
+    <% if (@managers.count == 0) %>
+      <div>
+        Nenhum prefeito foi encontrado na pesquisa
+      </div><br /><br />
+      <%= link_to '<i class="glyphicon glyphicon-plus"></i> Cadastrar prefeito'.html_safe, new_manager_path, class: 'btn btn-primary btn-sm' %>
+    <% end %>
   </div>
-  <% @managers.each do |manager| %>
-    <%= render 'manager', manager: manager %>
-  <% end %>
-  <% if (@managers.count == 0) %>
-    <div>
-      Nenhum prefeito foi encontrado na pesquisa
-    </div><br /><br />
-    <%= link_to '<i class="glyphicon glyphicon-plus"></i> Cadastrar prefeito'.html_safe, new_manager_path, class: 'btn btn-primary' %>
-  <% end %>
-</div>
 </div>
