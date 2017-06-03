@@ -17,7 +17,7 @@
     </div>
     <div class="field form-group col-md-8">
       <label><%= I18n.t('views.promise.columns.user_id') %></label>
-      <span style="display: block"><%= @promise.user_id ? User.find(@promise.user_id).email : '' %></span>
+      <span style="display: block"><%= @promise.user_id ? User.find(@promise.user_id).name || 'Restrito' : '' %></span>
     </div>
   </div>
 
@@ -31,13 +31,13 @@
   <% if (@promise.date_finish) %>
     <hr />
     <div class="row">
-      <div class="field form-group col-md-3">
+      <div class="field form-group col-md-4">
         <label><%= I18n.t('views.promise.columns.date_finish') %></label>
         <span style="display: block"><%= l @promise.date_finish, format: :date_simple %></span>
       </div>
-      <div class="field form-group col-md-9">
+      <div class="field form-group col-md-8">
         <label><%= I18n.t('views.promise.columns.user_finish') %></label>
-        <span style="display: block"><%= @promise.user_finish_email %></span>
+        <span style="display: block"><%= @promise.user_finish_name %></span>
       </div>
     </div>
 

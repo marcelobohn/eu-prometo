@@ -41,4 +41,8 @@ class Promise < ApplicationRecord
   def user_finish_email
     self.user_finish ? User.find(self.user_finish).email : nil
   end
+
+  def user_finish_name
+    self.user_finish ? User.find(self.user_finish).name || 'Restrito' : nil
+  end
 end

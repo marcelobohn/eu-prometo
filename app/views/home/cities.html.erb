@@ -1,25 +1,37 @@
 <div class="container">
-  <div class="row">
-    <div class="well well-sm">
-      <span class="title-resource"><%= link_to 'Prefeituras', cities_path %></span>
-      <% if (@managers.count > 0) %>
-        <br /> <%= link_to '<i class="glyphicon glyphicon-plus"></i> Cadastrar prefeito'.html_safe, new_manager_path, class: 'btn btn-primary btn-sm' %>
-      <% end %>
-      <div class="pull-right">
-        <%= form_tag cities_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Pesquisa", :name => nil, class: 'btn btn-primary btn-sm' %>
-        <% end %>
-      </div>
-    </div>
-    <% @managers.each do |manager| %>
-      <%= render 'manager', manager: manager %>
-    <% end %>
-    <% if (@managers.count == 0) %>
-      <div>
-        Nenhum prefeito foi encontrado na pesquisa
-      </div><br /><br />
-      <%= link_to '<i class="glyphicon glyphicon-plus"></i> Cadastrar prefeito'.html_safe, new_manager_path, class: 'btn btn-primary btn-sm' %>
-    <% end %>
+  <span class="title-resource">Cidades</span>
+  <div class="pull-right">
+    <%= link_to '<i class="glyphicon glyphicon-plus"></i> Cadastrar prefeito'.html_safe, new_manager_path, class: 'btn btn-success btn-sm' %>
   </div>
+
+  <hr />
+
+  <div class="pull-left">
+    <%= form_tag cities_path, :method => 'get' do %>
+      <div class="input-group col-md-3">
+        <%= text_field_tag :search, params[:search], class: 'form-control', style: 'width:90%' %>
+        <span class="input-group-btn">
+          <%= button_tag type: 'submit', class: 'btn btn-primary btn-sm' do %>
+            <i class="glyphicon glyphicon-search"></i> Pesquisa
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <br />
+
+  <% @managers.each do |manager| %>
+    <%= render 'manager', manager: manager %>
+  <% end %>
+
+  <% if (@managers.count == 0) %>
+    <div>
+      Nenhum prefeito foi encontrado na pesquisa
+    </div><br /><br />
+  <% else %>
+    <%= paginate @managers %>
+  <% end %>
 </div>

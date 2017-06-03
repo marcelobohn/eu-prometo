@@ -38,6 +38,7 @@
   .title-1 { font-size: 12px }
   .title-2 { font-size: 18px }
   .title-resource { font-size: 20px }
+  .margin-spaces { margin: 8px }
 }
 
 .navbar {
@@ -61,4 +62,8 @@ hr {
 
 .favorite {
   margin-top: -10px;
+}
+
+.margin-spaces {
+  margin: 0px;
 }

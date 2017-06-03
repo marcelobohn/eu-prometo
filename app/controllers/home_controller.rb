@@ -8,13 +8,13 @@ class HomeController < ApplicationController
   def cities
     filter = { type_manager: 0 }
     filter[:text] = params[:search] if (params[:search])
-    @managers = Manager.search(filter)
+    @managers = Manager.search(filter).page(params[:page]).per(10)
   end
 
   def states
     filter = { type_manager: 1 }
     filter[:text] = params[:search] if (params[:search])
-    @managers = Manager.search(filter)
+    @managers = Manager.search(filter).page(params[:page]).per(10)
   end
 
   def countries

@@ -17,11 +17,17 @@ pt-BR:
       manager:
         one: Administrador
         other: Administradores
-      promise: Promessa
+      promise:
+        one: Promessa
+        other: Promessas
     attributes:
       manager:
         name: 'Nome'
         election: 'Eleição'
+        state_id: 'Estado'
+        city_id: 'Cidade'
+        type_manager: 'Tipo de administrador'
+        election_id: 'Eleição'
       promise:
         description: 'Descrição da promessa'
         date_finish: 'Data conclusão'
@@ -35,7 +41,6 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmação de senha
         current_password: Senha atual
-
 
   time:
     formats:

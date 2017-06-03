@@ -1,5 +1,5 @@
 <div class="field form-group" id="manager_<%= manager.id%>">
-  <div class="panel panel-primary">
+  <div class="panel panel-primary margin-spaces">
     <div class="panel-heading">
       <%= manager.get_local %> | <%= manager.election.description %>
     </div>
@@ -7,7 +7,7 @@
       <div class="row row-custom-1">
         <%= manager.type_manager_text %> <br />
         <div class="pull-left title-2">
-          <%= link_to manager.name, manager %>
+          <%= link_to manager.name, manager_promises_path(manager) %>
         </div>
         <div class="pull-right">
           <%#= link_to_follow manager %>

@@ -5,7 +5,7 @@ class ManagersController < ApplicationController
 
   def follow
     f = @manager.start_follow current_user
-    # render json: { success: f ? true : false, follow: f }  
+    # render json: { success: f ? true : false, follow: f }
   end
 
   # GET /managers
@@ -82,7 +82,8 @@ class ManagersController < ApplicationController
     end
 
     def set_types
-      @type_manager = [['Presidente(a)', 2], ['Governador(a)', 1], ['Prefeito(a)', 0]]
+      # @type_manager = [['Presidente(a)', 2], ['Governador(a)', 1], ['Prefeito(a)', 0]]
+      @type_manager = [['Prefeito(a)', 0]]
       @states = State.all.order(:name).collect { |c| [ c.abbrev, c.id ] }
       @cities = (@manager && @manager.type_manager && @manager.type_manager == 0) ? @manager.state.cities.all.order(:name).collect { |c| [ c.name, c.id ] } : {}
     end

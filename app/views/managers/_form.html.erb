@@ -14,12 +14,12 @@
   <div class="row">
     <div class="field form-group col-md-3">
       <%= form.label :election_id %>
-      <%= form.select :election_id, Election.all.collect { |e| [ e.year, e.id ] }, {}, {required: 'true', autofocus: 'true', class: 'form-control', disabled: true}  %>
+      <%= form.select :election_id, Election.where(year: 2016).collect { |e| [ e.year, e.id ] }, {}, {required: 'true', autofocus: 'true', class: 'form-control', disabled: false}  %>
     </div>
 
     <div class="field form-group col-md-3">
       <%= form.label :type_manager %>
-      <%= form.select :type_manager, @type_manager, {}, {required: 'true', autofocus: 'true', class: 'form-control', disabled: true} %>
+      <%= form.select :type_manager, @type_manager, {}, {required: 'true', autofocus: 'true', class: 'form-control', disabled: false} %>
     </div>
 
   </div>
