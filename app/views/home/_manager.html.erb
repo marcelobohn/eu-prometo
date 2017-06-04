@@ -1,3 +1,4 @@
+<% resume = manager.get_resume_promises %>
 <div class="field form-group" id="manager_<%= manager.id%>">
   <div class="panel panel-primary margin-spaces">
     <div class="panel-heading">
@@ -12,10 +13,14 @@
         <div class="pull-right">
           <%#= link_to_follow manager %>
           <span id="link-follow"><%= render 'follow_link', manager: manager %></span>
+          <% if(resume[:total] == 0) %>
+            <%= link_to_new new_manager_promise_path(manager), {text: 'Cadastrar promessa'} %>
+          <% else %>
+            <%= link_to_promises manager, {text: 'Exibir promessas'} %>
+          <% end %>
         </div>
       </div>
       <div class="row row-custom-1">
-        <% resume = manager.get_resume_promises %>
         <span class="title-2">Total de promessas: <%= resume[:total] %></span>
         <div class="pull-right">
         <i class="fa fa-square-o" aria-hidden="true"></i> Não cumpridas: <%= resume[:opened][:count] %> |
@@ -25,13 +30,6 @@
       </div>
       <div class="row row-custom-1 height-26">
         <%= render 'bar', perc: resume[:finished][:perc] %>
-      </div>
-      <div class="row row-custom-1 pull-right">
-        <% if(resume[:total] == 0) %>
-          <%= link_to_new new_manager_promise_path(manager), {text: 'Cadastrar a primeira promessa'} %>
-        <% else %>
-          <%= link_to_promises manager, {text: 'Exibir promessas'} %>
-        <% end %>
       </div>
     </div>
   </div>

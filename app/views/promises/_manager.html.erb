@@ -6,6 +6,7 @@
       <div class="pull-right">
         <%#= link_to_follow manager %>
         <span id="link-follow"><%= render 'follow_link', manager: manager %></span>
+        <%= link_to_new new_manager_promise_path, {text: 'Cadastrar nova promessa'} if !current_page?(action: 'new') %>
       </div>
     </div>
     <span style="font-size: 14px"><%= manager.get_local %> | <%= manager.election.description %></span><br />
@@ -18,8 +19,5 @@
   </div>
   <div class="row row-custom-1">
     <%= render 'home/bar', perc: resume[:finished][:perc] %>
-  </div>
-  <div>
-    <%= link_to_new new_manager_promise_path, {text: 'Cadastrar nova promessa'} if !current_page?(action: 'new') %>
   </div>
 </div>
