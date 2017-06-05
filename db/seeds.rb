@@ -19,9 +19,6 @@ CSV.foreach(::Rails.root.join('db/seed_data/municipios.csv'), 'r') do |(cod_ibge
     City.create! name: nome, state: State.find_by_ibge(cod_ibge[0..1]), ibge: cod_ibge
 end
 
-# ivoti = City.create! name: 'Ivoti', state: rs
-# novoHamburgo = City.create! name: 'Novo Hamburgo', state: rs
-# portoAlegre = City.create! name: 'Porto Alegre', state: rs
 ivoti = City.find_by_ibge(4310801) # Ivoti
 novoHamburgo = City.find_by_ibge(4313409)
 portoAlegre = City.find_by_ibge(4314902)
@@ -40,21 +37,10 @@ dilma = Manager.create! name: 'Dilma | Temer', election: election2014, country: 
 CSV.foreach(::Rails.root.join('db/seed_data/governadores.csv'), 'r') do |(estado, nome)|
     Manager.create! name: nome, election: election2014, country: br, state: State.find_by_abbrev(estado), type_manager: 1, user: marcelo
 end
-# sartori = Manager.create! name: 'José Ivo Sartori', election: election2014, country: br, state: rs, type_manager: 1, user: marcelo
-# pezao = Manager.create! name: 'Luiz Fernando Pezão', election: election2014, country: br, state: rj, type_manager: 1, user: marcelo
-# tiao_viana = Manager.create! name: 'Tião Viana', election: election2014, country: br, state: ac, type_manager: 1, user: marcelo
-# renan_filho = Manager.create! name: 'Renan Filho', election: election2014, country: br, state: al, type_manager: 1, user: marcelo
-# waldez = Manager.create! name: 'Waldez', election: election2014, country: br, state: ap, type_manager: 1, user: marcelo
-# eduardo_braga = Manager.create! name: 'Eduardo Braga', election: election2014, country: br, state: am, type_manager: 1, user: marcelo
-# rui_costa = Manager.create! name: 'Rui Costa', election: election2014, country: br, state: ba, type_manager: 1, user: marcelo
-# camilo = Manager.create! name: 'Camilo', election: election2014, country: br, state: ce, type_manager: 1, user: marcelo
-# rollemberg = Manager.create! name: 'Rollemberg', election: election2014, country: br, state: df, type_manager: 1, user: marcelo
-# paulo_hartung = Manager.create! name: 'Paulo Hartung', election: election2014, country: br, state: es, type_manager: 1, user: marcelo
-# marconi_perillo = Manager.create! name: 'Marconi Perillo', election: election2014, country: br, state: go, type_manager: 1, user: marcelo
 
 # prefeito
 maria = Manager.create! name: 'Maria de Lourdes Bauermann', election: election2016, country: br, state: rs, city: ivoti, type_manager: 0, user: marcelo
 fatima_daudt = Manager.create! name: 'Fatima Daudt', election: election2016, country: br, state: rs, city: novoHamburgo, type_manager: 0, user: marcelo
 nelson_marchezan_junior = Manager.create! name: 'Nelson Marchezan Junior', election: election2016, country: br, state: rs, city: portoAlegre, type_manager: 0, user: marcelo
 
-Promise.create! manager:maria, description: 'prometo que ...', user: marcelo
+# Promise.create! manager:maria, description: 'prometo que ...', user: marcelo

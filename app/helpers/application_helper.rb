@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def ico_bs type
+    "<i class=\"glyphicon glyphicon-#{type}\"></i>".html_safe
+  end
+
+  def ico_fa type
+    "<i class=\"fa fa-#{type}\" aria-hidden=\"true\"></i>".html_safe
+  end
+
   # for all cruds
   def link_to_back path
     link_to path, class: 'btn btn-primary btn-sm', :title => "Voltar" do

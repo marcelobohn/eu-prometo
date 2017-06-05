@@ -1,34 +1,35 @@
 <span class="title-resource">Apoie</span>
 <hr />
 <div class="clearfix"></div>
-<h3>Apoiadores financeiros</h3>
+<h3><%= ico_fa 'chevron-right' %> Apoiadores financeiros</h3>
 <p>
   Esse site não possui nenhum patrocinador, para que ele permaneça vivo, contamos com ajuda de apoiadores financeiros. <br />
-  Para se tornar um apoiador utilize o link <%= link_to 'APOIA.se/euprometoavoce', 'https://apoia.se/euprometoavoce' %>
+  Para se tornar um apoiador financeiro, utilize o link <br />
+  <%= link_to image_tag("apoiase-link.png")+' /euprometoavoce', 'https://apoia.se/euprometoavoce' %>
 </p>
 <ul>
   <li><i>Seu nome</i></li>
   <li>...</li>
 </ul>
-<i>Nesse local serão listados os apiadores (que concordarem em aparecer)</i>
+<i>Nesse local serão listados os apoiadores (que concordarem em aparecer)</i>
 <div class="clearfix"></div>
 
-<h3>Apoiadores sociais</h3>
+<h3><%= ico_fa 'chevron-right' %> Apoiadores sociais</h3>
 <p>
-  Registre as promessas feitas a você e ajude o site a crescer.
+  Registre um ou mais as promessas e ajude o site a crescer.
 </p>
 <p>
   Compartilhe em suas redes sociais.<br />
   <div class="row col-sm-6 social-buttons">
-  <%= link_to "<span class=\"fa fa-twitter\"></span> ".html_safe+" twitter.com/euprometoavoce", 'https://twitter.com/euprometoavoce', target: 'blank', class: "btn btn-block btn-social btn-twitter" %>
-  <%= link_to "<span class=\"fa fa-facebook\"></span> ".html_safe+" facebook.com/euprometoavoce", 'https://www.facebook.com/EuPrometoavoce', target: 'blank', class: "btn btn-block btn-social btn-facebook" %>
+    <%= link_to "<span class=\"fa fa-twitter\"></span> ".html_safe+" twitter.com/euprometoavoce", 'https://twitter.com/euprometoavoce', target: 'blank', class: "btn btn-block btn-social btn-twitter" %>
+    <%= link_to "<span class=\"fa fa-facebook\"></span> ".html_safe+" facebook.com/euprometoavoce", 'https://www.facebook.com/EuPrometoavoce', target: 'blank', class: "btn btn-block btn-social btn-facebook" %>
   </div>
 </p>
 <div class="clearfix"></div>
 
-<h3>Apoiadores técnicos</h3>
+<h3><%= ico_fa 'chevron-right' %> Apoiadores técnicos</h3>
 <p>
-  Caso você encontre algum bug, informação incorreta ou tem sugestão melhoria, pode criar uma tarefa no endereço
+  Caso você encontre algum bug, informação incorreta ou tem sugestão melhoria, pode criar uma tarefa no endereço.
   <div class="row col-sm-6 social-buttons">
     <%= link_to "<span class=\"fa fa-github\"></span> ".html_safe+" github.com/marcelobohn/euprometoavoce/issues", 'https://github.com/marcelobohn/euprometoavoce/issues', target: 'blank', class: "btn btn-block btn-social btn-github" %>
   </div>

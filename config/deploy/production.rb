@@ -59,3 +59,28 @@ server '174.138.50.178', user: 'deploy', roles: %w{app db web}
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+
+namespace :rails do
+  desc "Run the console on a remote server."
+  # cap production rails:console
+  task :console do
+    on roles(:app) do |h|
+      execute_interactively "RAILS_ENV=#{fetch(:rails_env)} bundle exec rails console", h.user
+    end
+  end
+  # cap production rails:log
+  task :log do
+    on roles(:app) do |h|
+      download! '/home/deploy/eu-prometo/current/log/production.log', '/tmp'
+    end
+  end
+
+  def execute_interactively(command, user)
+    info "Connecting with #{user}@#{host}"
+    info "path cd #{fetch(:deploy_to)}/current"
+    info "command #{command}"
+    cmd = "ssh #{user}@#{host} -p 22 -t 'cd #{fetch(:deploy_to)}/current && #{command}'"
+    exec cmd
+  end
+end
