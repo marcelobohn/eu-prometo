@@ -28,6 +28,16 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="field form-group col-md-12">
+      <label><%= I18n.t('views.promise.columns.video_link') %></label><br />
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @promise.video_link_embed %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+
+
+
   <% if (@promise.date_finish) %>
     <hr />
     <div class="row">

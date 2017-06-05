@@ -45,4 +45,8 @@ class Promise < ApplicationRecord
   def user_finish_name
     self.user_finish ? User.find(self.user_finish).name || 'Restrito' : nil
   end
+
+  def video_link_embed
+    self.video_link.split('?v=').last
+  end
 end

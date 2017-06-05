@@ -22,6 +22,16 @@
       <% end %>
     </div>
   </div>
+  <div class="row">
+    <div class="field form-group col-md-12">
+      <%= form.label :video_link %>
+      <% if @finishing || @contesting %>
+        <span style="display:block"><%= promise.video_link %></span>
+      <% else %>
+        <%= form.text_field :video_link, id: :promise_video_link, class: 'form-control', required: 'true' %>
+      <% end %>
+    </div>
+  </div>
   <% if @finishing %>
     <div class="row">
       <div class="field form-group col-md-3">

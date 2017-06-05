@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526180733) do
+ActiveRecord::Schema.define(version: 20170605220437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,9 @@ ActiveRecord::Schema.define(version: 20170526180733) do
     t.integer "user_finish"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video_link"
+    t.string "image_link"
+    t.date "authorized"
     t.index ["manager_id"], name: "index_promises_on_manager_id"
     t.index ["user_id"], name: "index_promises_on_user_id"
   end
