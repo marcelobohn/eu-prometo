@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @managers = Manager.limit(19)
+    @last_promise = Promise.last
   end
 
   def cities

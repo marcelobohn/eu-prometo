@@ -29,6 +29,16 @@
       <br />
     </div>
     <div class="col-sm-9 col-md-9 hidden-xs-down bg-faded sidebar">
+
+      <h3><%= ico_fa 'share' %> Última promessa registrada</h3>
+      <div class="well well-sm">
+        <%= link_to manager_promise_path(@last_promise.manager, @last_promise) do %>
+          <%= @last_promise.manager.get_local %><br />
+          <%= @last_promise.manager.type_manager_text  %> <%= @last_promise.manager.name  %><br />
+          <b>Descrição da promessa: </b>
+          <%= @last_promise.description  %>
+        <% end %>
+        </div>
       <%#= render 'charts' %>
       <%= render 'panel-manager' %>
     </div>

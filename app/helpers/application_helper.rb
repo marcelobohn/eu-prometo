@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def ico_bs type
-    "<i class=\"glyphicon glyphicon-#{type}\"></i>".html_safe
+  def ico_bs type, text = nil
+    "<i class=\"glyphicon glyphicon-#{type}\"></i>#{text}".html_safe
   end
 
   def ico_fa type
@@ -69,9 +69,9 @@ module ApplicationHelper
       title = following ? 'Voce está seguindo ' + manager.name : 'Começar a seguir'
       link_to follow_manager_path(id: manager.id), method: :post, remote: true, title: title, class: 'btn btn-default btn-sm' do
         if following
-          '<i class="glyphicon glyphicon-star"></i> Seguindo'.html_safe
+          ico_bs 'star', ' Seguindo'
         else
-          '<i class="glyphicon glyphicon-star-empty"></i> Seguir'.html_safe
+          ico_bs 'star-empty', ' Seguir'
         end
       end
     end
