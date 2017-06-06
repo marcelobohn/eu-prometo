@@ -47,6 +47,6 @@ class Promise < ApplicationRecord
   end
 
   def video_link_embed
-    self.video_link.split('?v=').last
+    self.video_link.split('?v=').last if self.video_link
   end
 end

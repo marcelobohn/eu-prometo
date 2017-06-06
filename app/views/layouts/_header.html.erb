@@ -12,13 +12,14 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        <% if current_user %>
+          <li class=<%= current_page?(following_path) ? 'active' : '' %>><a href="/following">Seguindo</a></li>
+          <li class=<%= current_page?(favorites_path) ? 'active' : '' %>><a href="/favorites">Favoritos</a></li>
+        <% end %>
         <% if current_user && current_user.admin? %>
           <li class=<%= current_page?(elections_path) ? 'active' : '' %>><a href="/elections">Eleições</a></li>
           <li class=<%= current_page?(managers_path) ? 'active' : '' %>><a href="/managers">Administradores</a></li>
         <% else %>
-          <% if current_user %>
-            <li class=<%= current_page?(following_path) ? 'active' : '' %>><a href="/following">Seguindo</a></li>
-          <% end %>
           <li class=<%= current_page?(cities_path) ? 'active' : '' %>><%= link_to 'Prefeituras', cities_path %></li>
           <li class=<%= current_page?(states_path) ? 'active' : '' %>><%= link_to 'Estados', states_path %></li>
           <li class=<%= current_page?(countries_path) ? 'active' : '' %>><%= link_to 'Pais', countries_path %></li>

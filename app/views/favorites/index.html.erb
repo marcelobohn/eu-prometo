@@ -1,0 +1,18 @@
+<span class="title-resource">Promessas favoritas</span>
+<p>
+  Você tem <%= @favorites.count %> promessas favoritas.
+</p>
+
+<% if @favorites.count > 0 %>
+  <% @favorites.each do |favorite| %>
+    <div class="bs-callout bs-callout-primary row">
+      <%= link_to manager_promise_path(favorite.promise.manager, favorite.promise) do %>
+        <h4><%= ico_fa 'bookmark' %> <b>Gestor:</b> <%= favorite.promise.manager.name %></h4>
+      <% end %>
+      <b>Descrição da promessa:</b>
+      <%= favorite.promise.description %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Você não possui promessas adicionadas as favoritas</p>
+<% end %>

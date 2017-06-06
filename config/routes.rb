@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'contact#index'
   get 'support', to: 'support#index'
   get 'following', to: 'following#index'
+  get 'favorites', to: 'favorites#index'
 
   post 'address/cities', to: 'address#cities'
 
