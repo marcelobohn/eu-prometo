@@ -5,7 +5,7 @@ RSpec.describe "support/index.html.erb", type: :view do
 
     it "texto padrão" do
       render
-      expect(rendered).to match /Apoie esse projeto/
+      expect(rendered).to match /Apoie/
     end
-  end  
+  end
 end

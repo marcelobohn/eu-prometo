@@ -1,0 +1,10 @@
+<span class="title-resource">Seguindo gestores</span>
+<p>
+  Você está seguindo <%= @following.count %> gestores públicos.
+</p>
+
+<% @following.each do |follow| %>
+  <div class="row">
+    <%= render 'home/manager', manager: follow.manager %>
+  </div>
+<% end %>

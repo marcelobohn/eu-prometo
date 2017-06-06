@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'about', to: 'about#index'
   get 'contact', to: 'contact#index'
   get 'support', to: 'support#index'
+  get 'following', to: 'following#index'
 
   post 'address/cities', to: 'address#cities'
 
