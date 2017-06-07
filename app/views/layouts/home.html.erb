@@ -4,6 +4,8 @@
     <title>EuPrometo</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rede social de gerenciamento de promessas de gestores públicos">
+    <meta name="keywords" content="promessa, promessas, gestor público, presidente, governador, prefeito">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -20,7 +22,7 @@
       <% end %>
     </div>
 
-    <%= yield %>  
+    <%= yield %>
 
     <%= render 'layouts/footer' %>
 
