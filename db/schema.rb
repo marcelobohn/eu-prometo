@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605220437) do
+ActiveRecord::Schema.define(version: 20170607142232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(version: 20170605220437) do
     t.string "video_link"
     t.string "image_link"
     t.date "authorized"
+    t.string "news_link"
+    t.integer "type_promise"
     t.index ["manager_id"], name: "index_promises_on_manager_id"
     t.index ["user_id"], name: "index_promises_on_user_id"
   end

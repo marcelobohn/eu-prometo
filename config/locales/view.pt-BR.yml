@@ -47,7 +47,8 @@ pt-BR:
         description_finish: Descrição conclusão
         user_id: Usuário cadastro
         user_finish: Usuário conclusão
-        video_link: Vídeo
+        video_link: Link do Vídeo
+        news_link: Link da notícia
       flash_messages:
         was_successfully_created: 'Promessa foi criada com sucesso.'
         was_successfully_updated: 'Promessa foi atualizada com sucesso.'

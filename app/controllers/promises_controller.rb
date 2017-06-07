@@ -103,6 +103,6 @@ class PromisesController < ApplicationController
     def promise_params
       params.require(:promise).permit(:manager_id, :description, :date_finish,
         :description_finish, :description_contest, :user_id, :user_finish,
-        :video_link)
+        :video_link, :news_link)
     end
 end

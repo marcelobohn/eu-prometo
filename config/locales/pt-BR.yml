@@ -33,6 +33,8 @@ pt-BR:
         date_finish: 'Data conclusão'
         description_finish: 'Descrição da conclusão'
         description_contest: 'Descrição da contestação'
+        video_link: Link do vídeo
+        news_link: Link da notícia
   helpers:
     label:
       user:

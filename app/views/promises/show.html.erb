@@ -39,8 +39,14 @@
     </div>
   <% end %>
 
-
-
+  <% if (@promise.news_link) %>
+    <div class="row">
+      <div class="field form-group col-md-6">
+        <label><%= I18n.t('views.promise.columns.news_link') %></label>
+        <span style="display: block"><%= link_to @promise.news_link, @promise.news_link %></span>
+      </div>
+    </div>
+  <% end %>
 
   <% if (@promise.date_finish) %>
     <hr />
