@@ -47,6 +47,6 @@ class Promise < ApplicationRecord
   end
 
   def video_link_embed
-    self.video_link.split('?v=').last if self.video_link
+    self.video_link && self.video_link.include?('?v=') ? self.video_link.split('?v=').last : nil
   end
 end

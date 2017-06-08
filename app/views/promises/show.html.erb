@@ -28,7 +28,8 @@
     </div>
   </div>
 
-  <% if (@promise.video_link) %>
+  <% if (!@promise.video_link_embed.nil?) %>
+  <%# if (@promise.video_link) %>
     <div class="row">
       <div class="field form-group col-md-6">
         <label><%= I18n.t('views.promise.columns.video_link') %></label><br />
