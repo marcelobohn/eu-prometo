@@ -12,14 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20170607142232) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "abbrev"
     t.string "ibge"
-    t.bigint "state_id"
+    t.integer "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
@@ -27,8 +24,8 @@ ActiveRecord::Schema.define(version: 20170607142232) do
 
   create_table "comments", force: :cascade do |t|
     t.string "description"
-    t.bigint "user_id"
-    t.bigint "promise_id"
+    t.integer "user_id"
+    t.integer "promise_id"
     t.integer "type_comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170607142232) do
     t.string "email"
     t.integer "type_contact"
     t.text "description"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "readed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,8 +60,8 @@ ActiveRecord::Schema.define(version: 20170607142232) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "promise_id"
+    t.integer "user_id"
+    t.integer "promise_id"
     t.date "remove"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,8 +70,8 @@ ActiveRecord::Schema.define(version: 20170607142232) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "manager_id"
+    t.integer "user_id"
+    t.integer "manager_id"
     t.date "unfollow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -84,14 +81,14 @@ ActiveRecord::Schema.define(version: 20170607142232) do
 
   create_table "managers", force: :cascade do |t|
     t.string "name"
-    t.bigint "election_id"
+    t.integer "election_id"
     t.integer "country_id"
     t.integer "state_id"
     t.integer "city_id"
     t.integer "type_manager"
     t.date "start"
     t.date "end"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["election_id"], name: "index_managers_on_election_id"
@@ -99,11 +96,11 @@ ActiveRecord::Schema.define(version: 20170607142232) do
   end
 
   create_table "promises", force: :cascade do |t|
-    t.bigint "manager_id"
+    t.integer "manager_id"
     t.text "description"
     t.date "date_finish"
     t.text "description_finish"
-    t.bigint "user_id"
+    t.integer "user_id"
     t.integer "user_finish"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,7 +117,7 @@ ActiveRecord::Schema.define(version: 20170607142232) do
     t.string "name"
     t.string "abbrev"
     t.string "ibge"
-    t.bigint "country_id"
+    t.integer "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_states_on_country_id"
@@ -148,17 +145,4 @@ ActiveRecord::Schema.define(version: 20170607142232) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "cities", "states"
-  add_foreign_key "comments", "promises"
-  add_foreign_key "comments", "users"
-  add_foreign_key "contacts", "users"
-  add_foreign_key "favorites", "promises"
-  add_foreign_key "favorites", "users"
-  add_foreign_key "follows", "managers"
-  add_foreign_key "follows", "users"
-  add_foreign_key "managers", "elections"
-  add_foreign_key "managers", "users"
-  add_foreign_key "promises", "managers"
-  add_foreign_key "promises", "users"
-  add_foreign_key "states", "countries"
 end
