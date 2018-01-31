@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :promise do
-    
-  end
+    description 'prometo que ...'
+  end 
 end
