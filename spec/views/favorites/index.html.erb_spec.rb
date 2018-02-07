@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "favorites/index.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "acesso simples" do
+    it "texto padrão" do
+      @favorites = Favorite.all
+      render
+      expect(rendered).to match /Promessas favoritas/
+    end
+  end  
 end
