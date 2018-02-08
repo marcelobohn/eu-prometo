@@ -1,8 +1,6 @@
 class TypeManagerAddress < ActiveModel::Validator
-  def validate(record)
-    if record.type_manager == 'mayor' && record.city.nil?
-      record.errors[:base] << "Mayor needs a City"
-    end
+  def validate(record)   
+    record.errors.add(:type_manager, 'Mayor needs a City') if record.type_manager == 'mayor' && record.city.nil?
   end
 end
 
@@ -14,11 +12,10 @@ class Manager < ApplicationRecord
   belongs_to :city, optional: true
   has_many :promise
   has_many :follows
-  # accepts_nested_attributes_for :promise
 
   validates :name, presence: true
 
-  # enum type_manager: [ :president, :governor, :mayor ]
+  enum type_manager: [ :mayor, :governor, :president ]
 
   validates_with TypeManagerAddress
 
@@ -39,11 +36,11 @@ class Manager < ApplicationRecord
 
   def get_local
     case type_manager
-    when 0
+    when 'mayor'
       city.name + ' - ' + state.abbrev
-    when 1
+    when 'governor'
       state.name
-    when 2
+    when 'president'
       country.name
     end
   end
@@ -54,8 +51,8 @@ class Manager < ApplicationRecord
     opened = promise.where(date_finish: nil).count
     {
       total: total,
-      finished: { count: finished, perc: total > 0 ? (finished*100)/total : 0 },
-      opened: { count: opened, perc: total > 0 ? (opened*100)/total : 0 },
+      finished: { count: finished, perc:(total > 0 ? (finished*100)/total : 0) },
+      opened: { count: opened, perc:(total > 0 ? (opened*100)/total : 0) },
     }
   end
 

@@ -6,9 +6,9 @@ pt-BR:
         '1': 'Municipal'
     manager:
       type:
-        '0': 'Prefeito(a)'
-        '1': 'Governador(a)'
-        '2': 'Presidente(a)'
+        'mayor': 'Prefeito(a)'
+        'governor': 'Governador(a)'
+        'president': 'Presidente(a)'        
     promise:
       status:
         '0': 'Não cumprida'

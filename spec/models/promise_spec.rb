@@ -28,6 +28,9 @@ RSpec.describe Promise, type: :model do
       expect(promise.get_status[:type]).to eq("Cumprida")
       expect(promise.description_finish).to eq("foi comprido")
       expect(promise.user_finish).to eq(user.id)
+
+      expect(manager.get_resume_promises).to include(:finished=>{:count=>1, :perc=>100})
+      expect(manager.get_resume_promises).to include(:opened=>{:count=>0, :perc=>0})      
     end
   end
 
@@ -42,7 +45,11 @@ RSpec.describe Promise, type: :model do
       expect(promise.comments.first.description).to eq("não foi comprido")
       expect(promise.user_finish_email).to eq(user_attributes[:email])      
       expect(promise.user_finish_name).to eq(user_attributes[:name])
-      expect(promise.video_link_embed).to be_nil      
+      expect(promise.video_link_embed).to be_nil  
+      
+      expect(manager.get_resume_promises).to include(:total=>1)
+      expect(manager.get_resume_promises).to include(:finished=>{:count=>0, :perc=>0})
+      expect(manager.get_resume_promises).to include(:opened=>{:count=>1, :perc=>100})
     end
   end
 
