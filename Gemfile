@@ -45,6 +45,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-json_expectations'
   gem 'airborne'
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov'  
 end
 
 group :development do
@@ -91,3 +93,6 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 
 gem 'newrelic_rpm'
+
+# A Ruby static code analyzer, based on the community Ruby style guide.
+gem 'rubocop', require: false
