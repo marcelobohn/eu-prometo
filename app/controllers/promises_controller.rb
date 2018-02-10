@@ -1,6 +1,6 @@
 class PromisesController < ApplicationController
-  before_action :set_promise, only: [:show, :edit, :update, :destroy, :finish, :contest, :favorite]
   before_action :authenticate_user!, :except => [:show, :index]
+  before_action :set_promise, only: [:show, :edit, :update, :destroy, :finish, :contest, :favorite]
 
   def favorite
     f = @promise.add_favorite current_user
